@@ -11,7 +11,7 @@ CREATE TABLE SERVICE(
         id_service     Int  Auto_increment  NOT NULL ,
         name_service   Varchar (25) ,
         score_service  Int ,
-        service_statut Int
+        service_status Int
 	,CONSTRAINT SERVICE_PK PRIMARY KEY (id_service)
 )ENGINE=InnoDB;
 
@@ -40,19 +40,33 @@ CREATE TABLE COLLOCATION(
 
 
 #------------------------------------------------------------
+# Table: ARCHIVED_SERVICE
+#------------------------------------------------------------
+
+CREATE TABLE ARCHIVED_SERVICE(
+        id_archived_service     Int  Auto_increment  NOT NULL ,
+        beneficiary             Varchar (255) ,
+        archived_service_date   Date ,
+        picture                 Varchar (255) ,
+        archived_service_statut Int
+	,CONSTRAINT ARCHIVED_SERVICE_PK PRIMARY KEY (id_archived_service)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: VOTE_SERVICE
 #------------------------------------------------------------
 
 CREATE TABLE VOTE_SERVICE(
-        id_user         Int NOT NULL ,
-        id_collocaltion Int NOT NULL ,
         id_service      Int NOT NULL ,
+        id_collocaltion Int NOT NULL ,
+        id_user         Int NOT NULL ,
         admin_service   Int
-	,CONSTRAINT VOTE_SERVICE_PK PRIMARY KEY (id_user,id_collocaltion,id_service)
+	,CONSTRAINT VOTE_SERVICE_PK PRIMARY KEY (id_service,id_collocaltion,id_user)
 
-	,CONSTRAINT VOTE_SERVICE_USER_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
+	,CONSTRAINT VOTE_SERVICE_SERVICE_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
 	,CONSTRAINT VOTE_SERVICE_COLLOCATION0_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
-	,CONSTRAINT VOTE_SERVICE_SERVICE1_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
+	,CONSTRAINT VOTE_SERVICE_USER1_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
 )ENGINE=InnoDB;
 
 
@@ -72,21 +86,33 @@ CREATE TABLE COLLOC_USER(
 
 
 #------------------------------------------------------------
-# Table: ACHIEVED_SERVICE
+# Table: ARCHIVED_SERVICE_DONE
 #------------------------------------------------------------
 
-CREATE TABLE ACHIEVED_SERVICE(
-        id_service              Int NOT NULL ,
-        id_collocaltion         Int NOT NULL ,
-        id_user                 Int NOT NULL ,
-        beneficiary             Varchar (255) ,
-        achieved_service_date   Date ,
-        picture                 Varchar (255) ,
-        achieved_service_statut Int
-	,CONSTRAINT ACHIEVED_SERVICE_PK PRIMARY KEY (id_service,id_collocaltion,id_user)
+CREATE TABLE ARCHIVED_SERVICE_DONE(
+        id_service          Int NOT NULL ,
+        id_archived_service Int NOT NULL ,
+        id_collocaltion     Int NOT NULL ,
+        id_user             Int NOT NULL
+	,CONSTRAINT ARCHIVED_SERVICE_DONE_PK PRIMARY KEY (id_service,id_archived_service,id_collocaltion,id_user)
 
-	,CONSTRAINT ACHIEVED_SERVICE_SERVICE_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
-	,CONSTRAINT ACHIEVED_SERVICE_COLLOCATION0_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
-	,CONSTRAINT ACHIEVED_SERVICE_USER1_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
+	,CONSTRAINT ARCHIVED_SERVICE_DONE_SERVICE_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
+	,CONSTRAINT ARCHIVED_SERVICE_DONE_ARCHIVED_SERVICE0_FK FOREIGN KEY (id_archived_service) REFERENCES ARCHIVED_SERVICE(id_archived_service)
+	,CONSTRAINT ARCHIVED_SERVICE_DONE_COLLOCATION1_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
+	,CONSTRAINT ARCHIVED_SERVICE_DONE_USER2_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: ARCHIVED_SERVICE_COLLOCATION
+#------------------------------------------------------------
+
+CREATE TABLE ARCHIVED_SERVICE_COLLOCATION(
+        id_archived_service Int NOT NULL ,
+        id_collocaltion     Int NOT NULL
+	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_PK PRIMARY KEY (id_archived_service,id_collocaltion)
+
+	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_ARCHIVED_SERVICE_FK FOREIGN KEY (id_archived_service) REFERENCES ARCHIVED_SERVICE(id_archived_service)
+	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_COLLOCATION0_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
 )ENGINE=InnoDB;
 
