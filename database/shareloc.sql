@@ -21,9 +21,11 @@ CREATE TABLE SERVICE(
 #------------------------------------------------------------
 
 CREATE TABLE USER(
-        id_user    Int  Auto_increment  NOT NULL ,
-        name_user  Varchar (50) ,
-        email_user Varchar (50)
+        id_user       Int  Auto_increment  NOT NULL ,
+        login_user    Varchar (50) ,
+        password_user Varchar (50) ,
+        name_user     Varchar (50) ,
+        email_user    Varchar (50)
 	,CONSTRAINT USER_PK PRIMARY KEY (id_user)
 )ENGINE=InnoDB;
 
@@ -33,23 +35,29 @@ CREATE TABLE USER(
 #------------------------------------------------------------
 
 CREATE TABLE COLLOCATION(
-        id_collocaltion  Int  Auto_increment  NOT NULL ,
+        id_collocation   Int  Auto_increment  NOT NULL ,
         name_collocation Varchar (50)
-	,CONSTRAINT COLLOCATION_PK PRIMARY KEY (id_collocaltion)
+	,CONSTRAINT COLLOCATION_PK PRIMARY KEY (id_collocation)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: ARCHIVED_SERVICE
+# Table: ACHIEVED_SERVICE
 #------------------------------------------------------------
 
-CREATE TABLE ARCHIVED_SERVICE(
-        id_archived_service     Int  Auto_increment  NOT NULL ,
-        beneficiary             Varchar (255) ,
-        archived_service_date   Date ,
+CREATE TABLE ACHIEVED_SERVICE(
+        id_achieved_service     Int  Auto_increment  NOT NULL ,
+        achieved_service_date   Date ,
         picture                 Varchar (255) ,
-        archived_service_statut Int
-	,CONSTRAINT ARCHIVED_SERVICE_PK PRIMARY KEY (id_archived_service)
+        achieved_service_statut Int ,
+        id_collocation          Int NOT NULL ,
+        id_user                 Int NOT NULL ,
+        id_service              Int NOT NULL
+	,CONSTRAINT ACHIEVED_SERVICE_PK PRIMARY KEY (id_achieved_service)
+
+	,CONSTRAINT ACHIEVED_SERVICE_COLLOCATION_FK FOREIGN KEY (id_collocation) REFERENCES COLLOCATION(id_collocation)
+	,CONSTRAINT ACHIEVED_SERVICE_USER0_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
+	,CONSTRAINT ACHIEVED_SERVICE_SERVICE1_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
 )ENGINE=InnoDB;
 
 
@@ -58,14 +66,14 @@ CREATE TABLE ARCHIVED_SERVICE(
 #------------------------------------------------------------
 
 CREATE TABLE VOTE_SERVICE(
-        id_service      Int NOT NULL ,
-        id_collocaltion Int NOT NULL ,
-        id_user         Int NOT NULL ,
-        admin_service   Int
-	,CONSTRAINT VOTE_SERVICE_PK PRIMARY KEY (id_service,id_collocaltion,id_user)
+        id_service     Int NOT NULL ,
+        id_collocation Int NOT NULL ,
+        id_user        Int NOT NULL ,
+        admin_service  Int
+	,CONSTRAINT VOTE_SERVICE_PK PRIMARY KEY (id_service,id_collocation,id_user)
 
 	,CONSTRAINT VOTE_SERVICE_SERVICE_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
-	,CONSTRAINT VOTE_SERVICE_COLLOCATION0_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
+	,CONSTRAINT VOTE_SERVICE_COLLOCATION0_FK FOREIGN KEY (id_collocation) REFERENCES COLLOCATION(id_collocation)
 	,CONSTRAINT VOTE_SERVICE_USER1_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
 )ENGINE=InnoDB;
 
@@ -75,44 +83,26 @@ CREATE TABLE VOTE_SERVICE(
 #------------------------------------------------------------
 
 CREATE TABLE COLLOC_USER(
-        id_collocaltion   Int NOT NULL ,
+        id_collocation    Int NOT NULL ,
         id_user           Int NOT NULL ,
         admin_collocation Bool
-	,CONSTRAINT COLLOC_USER_PK PRIMARY KEY (id_collocaltion,id_user)
+	,CONSTRAINT COLLOC_USER_PK PRIMARY KEY (id_collocation,id_user)
 
-	,CONSTRAINT COLLOC_USER_COLLOCATION_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
+	,CONSTRAINT COLLOC_USER_COLLOCATION_FK FOREIGN KEY (id_collocation) REFERENCES COLLOCATION(id_collocation)
 	,CONSTRAINT COLLOC_USER_USER0_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: ARCHIVED_SERVICE_DONE
+# Table: BENEFICIARY
 #------------------------------------------------------------
 
-CREATE TABLE ARCHIVED_SERVICE_DONE(
-        id_service          Int NOT NULL ,
-        id_archived_service Int NOT NULL ,
-        id_collocaltion     Int NOT NULL ,
-        id_user             Int NOT NULL
-	,CONSTRAINT ARCHIVED_SERVICE_DONE_PK PRIMARY KEY (id_service,id_archived_service,id_collocaltion,id_user)
+CREATE TABLE BENEFICIARY(
+        id_user             Int NOT NULL ,
+        id_achieved_service Int NOT NULL
+	,CONSTRAINT BENEFICIARY_PK PRIMARY KEY (id_user,id_achieved_service)
 
-	,CONSTRAINT ARCHIVED_SERVICE_DONE_SERVICE_FK FOREIGN KEY (id_service) REFERENCES SERVICE(id_service)
-	,CONSTRAINT ARCHIVED_SERVICE_DONE_ARCHIVED_SERVICE0_FK FOREIGN KEY (id_archived_service) REFERENCES ARCHIVED_SERVICE(id_archived_service)
-	,CONSTRAINT ARCHIVED_SERVICE_DONE_COLLOCATION1_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
-	,CONSTRAINT ARCHIVED_SERVICE_DONE_USER2_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: ARCHIVED_SERVICE_COLLOCATION
-#------------------------------------------------------------
-
-CREATE TABLE ARCHIVED_SERVICE_COLLOCATION(
-        id_archived_service Int NOT NULL ,
-        id_collocaltion     Int NOT NULL
-	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_PK PRIMARY KEY (id_archived_service,id_collocaltion)
-
-	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_ARCHIVED_SERVICE_FK FOREIGN KEY (id_archived_service) REFERENCES ARCHIVED_SERVICE(id_archived_service)
-	,CONSTRAINT ARCHIVED_SERVICE_COLLOCATION_COLLOCATION0_FK FOREIGN KEY (id_collocaltion) REFERENCES COLLOCATION(id_collocaltion)
+	,CONSTRAINT BENEFICIARY_USER_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
+	,CONSTRAINT BENEFICIARY_ACHIEVED_SERVICE0_FK FOREIGN KEY (id_achieved_service) REFERENCES ACHIEVED_SERVICE(id_achieved_service)
 )ENGINE=InnoDB;
 
