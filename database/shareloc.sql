@@ -8,10 +8,11 @@
 #------------------------------------------------------------
 
 CREATE TABLE SERVICE(
-        id_service     Int  Auto_increment  NOT NULL ,
-        name_service   Varchar (25) ,
-        score_service  Int ,
-        service_status Int
+        id_service          Int  Auto_increment  NOT NULL ,
+        name_service        Varchar (25) ,
+        service_description Varchar (255) ,
+        score_service       Int ,
+        service_status      Int
 	,CONSTRAINT SERVICE_PK PRIMARY KEY (id_service)
 )ENGINE=InnoDB;
 
@@ -98,8 +99,9 @@ CREATE TABLE COLLOC_USER(
 #------------------------------------------------------------
 
 CREATE TABLE BENEFICIARY(
-        id_user             Int NOT NULL ,
-        id_achieved_service Int NOT NULL
+        id_user                    Int NOT NULL ,
+        id_achieved_service        Int NOT NULL ,
+        achieved_service_validated Int NOT NULL
 	,CONSTRAINT BENEFICIARY_PK PRIMARY KEY (id_user,id_achieved_service)
 
 	,CONSTRAINT BENEFICIARY_USER_FK FOREIGN KEY (id_user) REFERENCES USER(id_user)
