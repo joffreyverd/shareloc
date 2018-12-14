@@ -29,7 +29,16 @@ public class User implements Serializable {
 	@Column(name="password_user")
 	private String passwordUser;
 
+	public User(String login, String password, String name, String email) {
+		super();
+		this.loginUser = login;
+		this.passwordUser = password;
+		this.nameUser = name;
+		this.emailUser = email;
+	}
+	
 	public User() {
+		
 	}
 
 	public String getEmailUser() {
