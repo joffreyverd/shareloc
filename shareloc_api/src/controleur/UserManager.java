@@ -28,10 +28,10 @@ public class UserManager {
 		return null;
 	}
 	
-	public static boolean createUser(String login, String password, String firstname, String lastname) {
+	public static boolean createUser(String login, String password, String name, String email) {
 		User u = daoUser.find(login);
 		if (u == null) {
-			daoUser.create(new User(login, password, firstname, lastname));
+			daoUser.create(new User(login, password, name, email));
 			return true;
 		}
 		return false;
