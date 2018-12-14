@@ -19,6 +19,10 @@ public class Collocation implements Serializable {
 
 	@Column(name="name_collocation")
 	private String nameCollocation;
+	
+	public Collocation(String name) {
+		this.nameCollocation = name;
+	}
 
 	public Collocation() {
 	}
