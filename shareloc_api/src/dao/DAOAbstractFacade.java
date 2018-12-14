@@ -16,7 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
  */
 public abstract class DAOAbstractFacade<T> {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LP1");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("shareloc_api");
 	static EntityManager em = null;
 
 	// attribut typant la facade : c'est la classe de l'objet métier
