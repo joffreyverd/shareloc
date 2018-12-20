@@ -1,0 +1,15 @@
+.access {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.flex_buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#register_button, #login_button {
+    padding: 10px;
+}

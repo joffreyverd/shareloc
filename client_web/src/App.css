@@ -8,7 +8,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url(ressources/img/homepage-friends.jpeg);
+  background-size: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
