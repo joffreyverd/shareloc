@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Home from "./containers/Home";
+import {Route, withRouter} from "react-router-dom";
 import './App.css';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
 
-          <Home path="/" exact component={Home} />
+          <Route exact path="/" component={Home} />
           
         </header>
       </div>
@@ -16,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

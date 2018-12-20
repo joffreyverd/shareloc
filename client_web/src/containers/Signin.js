@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import "./Signin.css";
 
 export default class Signin extends Component {
@@ -7,39 +7,47 @@ export default class Signin extends Component {
         email: "",
         password: "",
     };
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+    }
     
     render() {
         return (
             <>
-            <div className="Login">
-                <form onSubmit={this.handleSubmit}>
+            <div className="login">
+                <Form horizontal onSubmit={this.handleSubmit} class="login_modal">
 
-                    <FormGroup controlId="email" bsSize="large">
-                        <ControlLabel>Email</ControlLabel>
+                    <FormGroup controlId="email">
+                        <ControlLabel><p class="field_name">Pseudo</p></ControlLabel>
                         <FormControl
-                            autoFocus
                             type="email"
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="password" bsSize="large">
-                        <ControlLabel>Password</ControlLabel>
+                    <FormGroup controlId="password">
+                        <ControlLabel><p class="field_name">Password</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
                             type="password"
                         />
                     </FormGroup>
-
+                    
                     <Button
-                        block
-                        bsSize="large"
+                        bsStyle="primary"
                         disabled={!this.props.validateFormFct(this.state.email, this.state.password)}
                         type="submit"
                     >Login</Button>
-                </form>
+                </Form>
             </div>
             </>
         );
