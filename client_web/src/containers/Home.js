@@ -3,34 +3,26 @@ import Signin from "./Signin.js";
 import Signup from "./Signup.js";
 import "./Home.css";
 
-export default class Login extends Component {
+export default class Home extends Component {
     state = {
-            option: true,
+            option: false,
         };
 
     validateForm(email, password) {
         return email.length > 0 && password.length > 0;
     }
 
-    handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-
-    handleSubmit = event => {
-        event.preventDefault();
-    }
     render() {
         return (
             <>
-            <div class="access">
+            <div class="register_modal">
                     <div class="flex_buttons">
-                        <p id="register_button">Register</p>
-                        <p id="login_button">Login</p>
+                        <p id="register_button" onClick={() => this.setState({option: false})}>Register</p>
+                        <p id="login_button" onClick={() => this.setState({option: true})}>Login</p>
                     </div>
                     {this.state.option ?
-                        <Signin validateFormFct={this.validateForm}/> : <Signup/>
+                        <Signin validateFormFct={this.validateForm}/> : <Signup validateFormFct={this.validateForm}/>
+                        
                     }
             </div>  
             </>
