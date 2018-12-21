@@ -14,6 +14,7 @@ public class Service implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_service")
 	private int idService;
 
@@ -30,6 +31,12 @@ public class Service implements Serializable {
 	private int serviceStatus;
 
 	public Service() {
+	}
+
+	public Service(String name, String description, int points) {
+		this.nameService = name;
+		this.serviceDescription = description;
+		this.scoreService = points;
 	}
 
 	public int getIdService() {
