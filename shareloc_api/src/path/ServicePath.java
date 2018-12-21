@@ -5,9 +5,9 @@ import javax.ws.rs.core.Response.Status;
 
 import org.jose4j.json.internal.json_simple.JSONObject;
 
-import controleur.CollocationManager;
+import controleur.ServiceManager;
 import controleur.UserManager;
-import model.Collocation;
+import model.Service;
 import model.User;
 import security.JWTokenUtility;
 import security.SigninNeeded;
@@ -19,19 +19,18 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-@Path("/collocation")
-public class CollocationPath {
+@Path("/service")
+public class ServicePath {
 	@SigninNeeded
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAll() {
-		List<Collocation> lc = CollocationManager.getCollocs();
+		List<Service> se = ServiceManager.getServices();
 		
-		if (lc != null) {
-			return Response.ok().entity(lc).build();
+		if (se != null) {
+			return Response.ok().entity(se).build();
 		}
 
 		return Response.status(Status.NO_CONTENT).build();
@@ -39,11 +38,11 @@ public class CollocationPath {
 	
 	@SigninNeeded
 	@POST
-	@Path("/createColloc")
+	@Path("/createService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createCollocation(JSONObject params) {
-		if(CollocationManager.createCollocation(params.get("name").toString()))
+	public Response createService(JSONObject params) {
+		if(ServiceManager.createService(params.get("name").toString(), params.get("description").toString() ,(int)params.get("points")))
 			return Response.status(Status.CREATED).build();
 		return Response.status(Status.CONFLICT).build();
 	}
