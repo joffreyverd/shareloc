@@ -38,7 +38,7 @@ public abstract class DAOAbstractFacade<T> {
 	 * 
 	 * @return l'entity manager
 	 */
-	protected EntityManager getEntityManager() {
+	public static EntityManager getEntityManager() {
 		if (em == null)
 			em = emfactory.createEntityManager();
 		return em;

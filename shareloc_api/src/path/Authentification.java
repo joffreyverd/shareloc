@@ -2,6 +2,7 @@ package path;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,8 +12,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+
+import org.jose4j.json.internal.json_simple.JSONObject;
+
 import javax.ws.rs.core.SecurityContext;
 
+import controleur.CollocationManager;
 import controleur.UserManager;
 import model.User;
 import security.JWTokenUtility;
@@ -46,15 +51,20 @@ public class Authentification {
 
 	@POST
 	@Path("/signup")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response signup(@QueryParam("login") String login, @QueryParam("password") String password,
-			@QueryParam("name") String name, @QueryParam("email") String email) {
-		if (UserManager.createUser(login, password, name, email))
+	public Response signup(JSONObject params) {
+		if (UserManager.createUser(params.get("login").toString(), params.get("password").toString(),params.get("name").toString(), params.get("email").toString()))
 			return Response.status(Status.CREATED).build();
 		return Response.status(Status.CONFLICT).build();
-
 	}
-
+	
+	
+	public Response createCollocation(JSONObject params) {
+		if(CollocationManager.createCollocation(params.get("name").toString()))
+			return Response.status(Status.CREATED).build();
+		return Response.status(Status.CONFLICT).build();
+	}
 	
 	/**
 	 * Méthode permettant de récupérer l'ensemble des roles d'un utilisateur

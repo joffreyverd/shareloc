@@ -9,7 +9,13 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQueries({
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u"),
+@NamedQuery(name="User.getUserByLogin", query="SELECT u FROM User u WHERE u.loginUser = :login"),
+@NamedQuery(name="User.getUserById", query="SELECT u FROM User u WHERE u.idUser = :id"),
+@NamedQuery(name="User.getUserByEmail", query="SELECT u FROM User u WHERE u.emailUser = :email"),
+@NamedQuery(name="User.searchUserByLogin", query="SELECT u FROM User u WHERE u.loginUser LIKE :login")
+})
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,6 +23,7 @@ public class User implements Serializable {
 	private String emailUser;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_user")
 	private int idUser;
 
