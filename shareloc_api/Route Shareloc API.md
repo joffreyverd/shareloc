@@ -4,11 +4,15 @@
 
 /signin => POST
 
+Permet de se connecter.
+
 /signup => POST
 
-/signout => ??
+Permet de s'inscrire.
 
-/whoami => GET ??
+/whoami => GET
+
+Permet de se reconnecter à la session si le token est toujours valide et disponible.
 
 
 
@@ -16,21 +20,35 @@
 
 /updateUser => PUT
 
+Permet de mettre à jour son profil utilisateur
+
 /deleteUser => DELETE
+
+Permet de supprimer un utilisateur
 
 
 
 #### Collocation :
 
-/createColloc
+/createColloc => POST
 
-/updateColloc
+Permet de créer une collocation.
 
-/deleteColloc
+/updateColloc => PUT
 
-/getColloc
+Permet de mettre a jour une collocation.
 
-/addUserColloc
+/deleteColloc => DELETE
+
+Permet de supprimer une collocation.
+
+/getCollocs => GET
+
+Permet de récuperer toutes les collocations au qu'elle on appartient.
+
+/addUserColloc => POST
+
+Permet d'ajouter un user à la collocation quand on est chef de la collocation
 
 
 
@@ -44,23 +62,33 @@ Proposition de vote pour la création du service.
 
 Proposition de vote pour la suppresion du service.
 
-/updateService
+/updateService => PUT
 
-/voteService
+Permet de mettre à jour le service.
+
+/voteService => PUT
+
+Permet de voter pour l'ajout d'un service
 
 
 
 #### Achieved Service :
 
-/didAchievedService
+/didAchievedService => POST
 
-/validateAchievedService
+Permet de dire qu'on a éfféctué le service avec une photo à l'appui.
+
+/validateAchievedService => PUT
+
+Permet de voter pour valider la réalisation du service.
 
 
 
 #### Chat :
 
-/chat
+/chat => POST
+
+Permet de parler entre les membres d'une collocation.
 
 
 

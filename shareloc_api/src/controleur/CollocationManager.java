@@ -9,7 +9,7 @@ public class CollocationManager {
 	
 	static DAOCollocation daoColloc = new DAOCollocation();
 
-	public static List<Collocation> getColloc() {
+	public static List<Collocation> getCollocs() {
 		List<Collocation> lc = daoColloc.findAll();		
 		return lc;
 	}
@@ -20,11 +20,7 @@ public class CollocationManager {
 	}
 	
 	public static Boolean createCollocation(String name) {
-		Collocation c = daoColloc.find(name);
-		if(c != null) {
-			daoColloc.create(new Collocation(name));
-			return true;
-		}
+		if(daoColloc.create(new Collocation(name)) != null ) return true;
 		return false;
 	}
 }
