@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
 import "./Signin.css";
 
-export default class Signin extends Component {
+class Signin extends Component {
     state = {
         email: "",
         password: "",
@@ -16,6 +17,8 @@ export default class Signin extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const { history } = this.props;
+        history.push('/collocations');
     }
     
     render() {
@@ -53,3 +56,5 @@ export default class Signin extends Component {
         );
     }
 }
+
+export default withRouter(Signin);

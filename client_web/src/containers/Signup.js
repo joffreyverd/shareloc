@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
 import "./Signup.css";
 
-export default class Signup extends Component {
+class Signup extends Component {
     state = {
         email: "",
         pseudo: "",
@@ -18,6 +19,8 @@ export default class Signup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const { history } = this.props;
+        history.push('/collocations');
     }
 
     render() {
@@ -38,7 +41,6 @@ export default class Signup extends Component {
                     <FormGroup controlId="pseudo">
                         <ControlLabel><p class="field_name">Pseudo</p></ControlLabel>
                         <FormControl
-                            type="email"
                             value={this.state.pseudo}
                             onChange={this.handleChange}
                         />
@@ -73,3 +75,5 @@ export default class Signup extends Component {
         );
     }
 }
+
+export default withRouter(Signup);
