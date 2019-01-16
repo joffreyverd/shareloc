@@ -20,6 +20,12 @@ export default class Collocations extends React.Component {
         alert('update');
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { history } = this.props;
+        history.push('/housemates');
+    }
+
     render() {
         return(
             <>
