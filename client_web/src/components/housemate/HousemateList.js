@@ -6,7 +6,7 @@ export default ({ items = [], onDelete }) => (
         
         <div>
 
-            <h2>Liste des collocataires</h2>
+            <h3>Liste des collocataires</h3>
 
             <ul>
             {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}

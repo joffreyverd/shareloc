@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskList from '../../components/task/TaskList';
+import UnapprouvedTaskList from '../../components/task/ProposalList';
 
 const TaskObject = [
     {
@@ -7,6 +8,15 @@ const TaskObject = [
     },
     {
         name: 'Passer l\'aspirateur'
+    }
+];
+
+const UnapprouvedTaskObject = [
+    {
+        name: 'Manger du caca'
+    },
+    {
+        name: 'Croquer l\'apocalypse à pleines dents'
     }
 ];
 
@@ -35,6 +45,12 @@ export default class Tasks extends React.Component {
                     items={TaskObject}
                     onDelete={this.deleteTask}
                     onUpdate={this.updateTask}
+                />
+
+                <UnapprouvedTaskList
+                    items={UnapprouvedTaskObject}
+                    onDelete={this.deleteUnapprouvedTask}
+                    onUpdate={this.updateUnapprouvedTask}
                 />
             </>
         );

@@ -11,7 +11,7 @@ export default class TaskView extends React.Component {
     render() {
         return(
             <>
-                <h1>Modifier une tâche</h1>
+                <h1>Modifier la tâche</h1>
             </>
         );
     }
