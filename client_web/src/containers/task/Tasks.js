@@ -13,7 +13,7 @@ const TaskObject = [
 
 const UnapprouvedTaskObject = [
     {
-        name: 'Manger du caca'
+        name: 'Etendre le linge'
     },
     {
         name: 'Croquer l\'apocalypse à pleines dents'

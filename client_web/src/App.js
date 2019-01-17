@@ -9,6 +9,7 @@ import Housemate from './containers/housemate/Housemates';
 import NewHousemateView from './containers/housemate/NewHousemateView';
 import Tasks from './containers/task/Tasks';
 import NewTaskView from './containers/task/NewTaskView';
+import NewAchievedTask from './containers/achievedTask/NewAchievedTask';
 import TaskView from './containers/task/TaskView';
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path="/newHousemateView" component={NewHousemateView} />
           <Route exact path="/tasks" component={Tasks} />
           <Route exact path="/newTaskView" component={NewTaskView} />
+          <Route exact path="/newAchievedTask" component={NewAchievedTask} />
           <Route exact path="/taskView" component={TaskView} />
           
         </header>

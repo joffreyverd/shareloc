@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import '../../ressources/css/Collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
@@ -30,7 +31,7 @@ const TaskObject = [
 
 const UnapprouvedTaskObject = [
     {
-        name: 'Manger du caca'
+        name: 'Etendre le linge'
     },
     {
         name: 'Croquer l\'apocalypse à pleines dents'
@@ -67,7 +68,9 @@ export default class CollocationView extends React.Component {
                     onUpdate={this.updateUnapprouvedTask}
                 />
 
-                <Link to="/newTaskView">Ajouter une tâche</Link>
+                <Link to="/newTaskView">Proposer une nouvelle tâche</Link>
+
+                <Link to="/newAchievedTask">J'ai accompli une tâche :)</Link>
 
             </>
         );
