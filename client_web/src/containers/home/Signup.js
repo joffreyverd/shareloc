@@ -27,10 +27,10 @@ class Signup extends Component {
         return (
             <>
             <div className='register'>
-                <Form horizontal onSubmit={this.handleSubmit} class='register_modal'>
+                <Form horizontal onSubmit={this.handleSubmit} className='register_modal'>
 
                     <FormGroup controlId='email'>
-                        <ControlLabel><p class='field_name'>Email</p></ControlLabel>
+                        <ControlLabel><p className='field_name'>Email</p></ControlLabel>
                         <FormControl
                             type='email'
                             value={this.state.email}
@@ -39,7 +39,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='pseudo'>
-                        <ControlLabel><p class='field_name'>Pseudo</p></ControlLabel>
+                        <ControlLabel><p className='field_name'>Pseudo</p></ControlLabel>
                         <FormControl
                             value={this.state.pseudo}
                             onChange={this.handleChange}
@@ -47,7 +47,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='password'>
-                        <ControlLabel><p class='field_name'>Password</p></ControlLabel>
+                        <ControlLabel><p className='field_name'>Password</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
@@ -56,7 +56,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='repeatPassword'>
-                        <ControlLabel><p class='field_name'>Repeat password</p></ControlLabel>
+                        <ControlLabel><p className='field_name'>Repeat password</p></ControlLabel>
                         <FormControl
                             value={this.state.repeatPassword}
                             onChange={this.handleChange}

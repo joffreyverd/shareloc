@@ -4,6 +4,8 @@ import '../../ressources/css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
+import Scoring from '../../components/achievedTask/AchievedTaskList';
+import Dashboard from '../../components/dashboard/myDashboard';
 
 const HousemateObject = [
     {
@@ -29,12 +31,44 @@ const TaskObject = [
     }
 ];
 
-const UnapprouvedTaskObject = [
+const ProposalObject = [
     {
         name: 'Etendre le linge'
     },
     {
-        name: 'Croquer l\'apocalypse à pleines dents'
+        name: 'Laver les WC'
+    }
+];
+
+const scoringObject = [
+    {
+        name: 'Stevy',
+        score: '127 pts'
+    },
+    {
+        name: 'Thomas',
+        score: '115 pts'
+    },
+    {
+        name: 'Benjamin',
+        score: '91 pts'
+    },
+    {
+        name: 'Joffrey',
+        score: '60 pts'
+    }
+];
+
+const dashboardObject = [
+    {
+        task: 'Faire la vaisselle',
+        number: 6,
+        total: 15
+    },
+    {
+        task: 'Passer l\'aspirateur',
+        number: 3,
+        total: 45
     }
 ];
 
@@ -61,7 +95,7 @@ export default class CollocationView extends React.Component {
     render() {
         return(
             <>
-                <h1 className='main-title'>Nom de la collocation</h1>
+                <h1 className='main-title'>Ma collocation</h1>
 
                 <div className='collocations_components'>
                     <HousemateList
@@ -75,8 +109,18 @@ export default class CollocationView extends React.Component {
                     />
                     
                     <UnapprouvedTaskList
-                        items={UnapprouvedTaskObject}
+                        items={ProposalObject}
                         onDelete={this.deleteUnapprouvedTask}
+                    />
+                </div>
+
+                <div className='dashboard-component'>
+                    <Scoring
+                        items={scoringObject}
+                    />
+
+                    <Dashboard
+                        items={dashboardObject}
                     />
                 </div>
 

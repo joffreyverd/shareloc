@@ -7,7 +7,10 @@ export default ({ items = [], onDelete }) => (
     
     <div className="card">
 
-        <h2 className='card-name'>Propositions</h2>
+        <div className='card-identity'>
+            <h2 className='card-name'>Propositions</h2>
+            <img src='/src/ressources/img/first.png'/>
+        </div>
 
         <ul>
             {items.map(item => <ProposalListItem {...item} onDelete={onDelete} />)}

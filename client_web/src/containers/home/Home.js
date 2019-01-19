@@ -15,8 +15,8 @@ export default class Home extends Component {
     render() {
         return (
             <>
-            <div class='register_modal'>
-                    <div class='flex_buttons'>
+            <div className='register_modal'>
+                    <div className='flex_buttons'>
                         <p id='register_button' onClick={() => this.setState({option: false})}>Register</p>
                         <p id='login_button' onClick={() => this.setState({option: true})}>Login</p>
                     </div>

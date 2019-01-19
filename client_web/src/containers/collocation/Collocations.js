@@ -29,7 +29,7 @@ export default class Collocations extends React.Component {
     render() {
         return(
             <>
-                <h1>Espaces de vie</h1>
+                <h1 className='main-title'>Mes espaces</h1>
                 <div className='card'>
                     <CollocationList
                         items={CollocationsObject}

@@ -7,7 +7,10 @@ export default ({ items = [], onDelete }) => (
         
         <div className="card">
 
-            <h2 className='card-name'>Membres</h2>
+            <div className='card-identity'>
+                <h2 className='card-name'>Membres</h2>
+                <img src='/src/ressources/img/first.png'/>
+            </div>
 
             <ul>
                 {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}

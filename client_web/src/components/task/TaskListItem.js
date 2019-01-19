@@ -20,6 +20,5 @@ export default ({ name, onDelete }) => (
             </Button>
         </div>
 
-
     </li>
 );

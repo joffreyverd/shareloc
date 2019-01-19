@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from "./containers/home/Home";
 import {Route, withRouter} from "react-router-dom";
-import './ressources/css/App.css';
+import './ressources/css/app.css';
 
 import Collocations from './containers/collocation/Collocations';
 import CollocationView from './containers/collocation/CollocationView';
