@@ -1,3 +1,38 @@
-.lol {
-    background-color: red;
+.card {
+    background-color: white;
+    border-radius: .6rem;
+    margin: 20px;
+    padding: 1rem;
+    width: 30%;
+}
+
+.card-name {
+    text-align: center;
+}
+
+.collocations_components {
+    display: flex;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-name {
+    max-width: 70%;
+}
+
+.collocation-list-item > h3 {
+    flex-grow: 1;
+}
+
+.options > a {
+    color: white;
+}
+.options > a:hover {
+    text-decoration-line: none;
+    color: #84AFE8;
 }

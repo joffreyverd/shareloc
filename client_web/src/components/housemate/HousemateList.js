@@ -1,18 +1,23 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Button, Glyphicon} from 'react-bootstrap';
 import HousemateListItem from './HousemateListItem';
 
 export default ({ items = [], onDelete }) => (
         
-        <div>
+        <div className="card">
 
-            <h3>Liste des collocataires</h3>
+            <h2 className='card-name'>Membres</h2>
 
             <ul>
-            {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}
+                {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}
             </ul>
 
-            <Link to="/newHousemateView">Ajouter un collocataire</Link>
+            <Link to="/newHousemateView">
+                <Button>
+                    <Glyphicon glyph='plus'/>
+                </Button>
+            </Link>
 
         </div>
 );

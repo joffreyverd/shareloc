@@ -29,13 +29,15 @@ export default class Collocations extends React.Component {
     render() {
         return(
             <>
-                <h1>Collocations</h1>
-        
-                <CollocationList
-                    items={CollocationsObject}
-                    onDelete={this.deleteCollocation}
-                    onUpdate={this.updateCollocation}
-                />
+                <h1>Espaces de vie</h1>
+                <div className='card'>
+                    <CollocationList
+                        items={CollocationsObject}
+                        onDelete={this.deleteCollocation}
+                        onUpdate={this.updateCollocation}
+                    />
+                </div>
+
             </>
         );
     }

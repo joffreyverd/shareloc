@@ -16,8 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-
           <Route exact path="/" component={Home} />
           <Route exact path="/collocations" component={Collocations} />
           <Route exact path="/collocationView" component={CollocationView} />
@@ -27,8 +25,6 @@ class App extends Component {
           <Route exact path="/newTaskView" component={NewTaskView} />
           <Route exact path="/newAchievedTask" component={NewAchievedTask} />
           <Route exact path="/taskView" component={TaskView} />
-          
-        </header>
       </div>
     );
   }

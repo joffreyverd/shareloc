@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import '../../ressources/css/Collocation.css';
+import '../../ressources/css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
@@ -40,6 +40,18 @@ const UnapprouvedTaskObject = [
 
 export default class CollocationView extends React.Component {
 
+    deleteHousemate = (e) => {
+        alert('delete');
+    }
+
+    deleteTask = (e) => {
+        alert('delete');
+    }
+
+    deleteUnapprouvedTask = (e) => {
+        alert('delete');
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
@@ -49,28 +61,28 @@ export default class CollocationView extends React.Component {
     render() {
         return(
             <>
-                <h1>Collocation View</h1>
+                <h1 className='main-title'>Nom de la collocation</h1>
 
-                <HousemateList
-                    items={HousemateObject}
-                    onDelete={this.deleteHousemate}
-                    onUpdate={this.updateHousemate}
-                />
+                <div className='collocations_components'>
+                    <HousemateList
+                        items={HousemateObject}
+                        onDelete={this.deleteHousemate}
+                    />
 
-                <TaskList
-                    items={TaskObject}
-                    onDelete={this.deleteTask}
-                    onUpdate={this.updateTask}
-                />
-                <UnapprouvedTaskList
-                    items={UnapprouvedTaskObject}
-                    onDelete={this.deleteUnapprouvedTask}
-                    onUpdate={this.updateUnapprouvedTask}
-                />
+                    <TaskList
+                        items={TaskObject}
+                        onDelete={this.deleteTask}
+                    />
+                    
+                    <UnapprouvedTaskList
+                        items={UnapprouvedTaskObject}
+                        onDelete={this.deleteUnapprouvedTask}
+                    />
+                </div>
 
-                <Link to="/newTaskView">Proposer une nouvelle tâche</Link>
-
-                <Link to="/newAchievedTask">J'ai accompli une tâche :)</Link>
+                <div className='options'>
+                    <Link to="/newAchievedTask">J'ai accompli une tâche :)</Link>
+                </div>
 
             </>
         );
