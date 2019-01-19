@@ -3,12 +3,12 @@ import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootst
 import { withRouter } from 'react-router-dom';
 import "../../ressources/css/forms.css";
 
-class NewAchievedTask extends Component {
+class NewCollocation extends Component {
     state = {
         name: ''
     };
 
-    createAchievedTask(name) {
+    createCollocation(name) {
         alert('lol');
     }
 
@@ -21,7 +21,7 @@ class NewAchievedTask extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        history.push('/newAchievedTask');
+        history.push('/newCollocation');
     }
     
     render() {
@@ -33,7 +33,7 @@ class NewAchievedTask extends Component {
                     <p>ShareLoc</p>
                 </div>
 
-                <h1 className='main-title'>Accomplir une tâche</h1>
+                <h1 className='main-title'>Créer une collocation</h1>
 
                 <div className='submission-form'>
                     <Form horizontal onSubmit={this.handleSubmit}>
@@ -46,7 +46,7 @@ class NewAchievedTask extends Component {
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
-
+                        
                         <Button
                             bsStyle='primary'
                             type='submit'
@@ -59,4 +59,4 @@ class NewAchievedTask extends Component {
     }
 }
 
-export default withRouter(NewAchievedTask);
+export default withRouter(NewCollocation);

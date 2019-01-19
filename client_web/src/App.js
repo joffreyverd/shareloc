@@ -5,27 +5,38 @@ import './ressources/css/app.css';
 
 import Collocations from './containers/collocation/Collocations';
 import CollocationView from './containers/collocation/CollocationView';
+import NewCollocation from './containers/collocation/NewCollocation';
 import Housemate from './containers/housemate/Housemates';
 import NewHousemateView from './containers/housemate/NewHousemateView';
 import Tasks from './containers/task/Tasks';
 import NewTaskView from './containers/task/NewTaskView';
 import NewAchievedTask from './containers/achievedTask/NewAchievedTask';
-import TaskView from './containers/task/TaskView';
+
+const AppRoute = ({component: Component, ...props}) => {
+  return (
+    <Route {...props} render={props => (
+      <div className="App">
+      <Component {...props} />
+      </div>
+    )} />
+  );
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/collocations" component={Collocations} />
-          <Route exact path="/collocationView" component={CollocationView} />
-          <Route exact path="/housemates" component={Housemate} />
-          <Route exact path="/newHousemateView" component={NewHousemateView} />
-          <Route exact path="/tasks" component={Tasks} />
-          <Route exact path="/newTaskView" component={NewTaskView} />
-          <Route exact path="/newAchievedTask" component={NewAchievedTask} />
-          <Route exact path="/taskView" component={TaskView} />
-      </div>
+      <>
+        <Route exact path="/" component={Home} />
+
+        <AppRoute exact path="/collocations" component={Collocations} />
+        <AppRoute exact path="/collocationView" component={CollocationView} />
+        <AppRoute exact path="/newCollocation" component={NewCollocation} />
+        <AppRoute exact path="/housemates" component={Housemate} />
+        <AppRoute exact path="/newHousemateView" component={NewHousemateView} />
+        <AppRoute exact path="/tasks" component={Tasks} />
+        <AppRoute exact path="/newTaskView" component={NewTaskView} />
+        <AppRoute exact path="/newAchievedTask" component={NewAchievedTask} />
+      </>
     );
   }
 }

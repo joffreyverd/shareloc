@@ -7,10 +7,10 @@ export default ({ name, onDelete }) => (
     <li className='list-item'>
         <h3 className='item-name'>{name}</h3>
         
-        <div>
+        <div className='icons'>
             <Link to="/collocationView">
                 <Button>
-                    <Glyphicon glyph='pencil'/>
+                    <Glyphicon glyph='eye-open'/>
                 </Button>
             </Link>
             <Button onClick={onDelete}>

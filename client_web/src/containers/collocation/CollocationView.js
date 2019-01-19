@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Button, Glyphicon} from 'react-bootstrap';
 import '../../ressources/css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
@@ -95,6 +96,11 @@ export default class CollocationView extends React.Component {
     render() {
         return(
             <>
+                <div className='logo'>
+                    <img src='/img/logo.png'/>
+                    <p>ShareLoc</p>
+                </div>
+
                 <h1 className='main-title'>Ma collocation</h1>
 
                 <div className='collocations_components'>
@@ -123,11 +129,6 @@ export default class CollocationView extends React.Component {
                         items={dashboardObject}
                     />
                 </div>
-
-                <div className='options'>
-                    <Link to="/newAchievedTask">J'ai accompli une tâche :)</Link>
-                </div>
-
             </>
         );
     }
