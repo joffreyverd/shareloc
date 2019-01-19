@@ -26,9 +26,8 @@ class Signup extends Component {
     render() {
         return (
             <>
-            <div className='register'>
-                <Form horizontal onSubmit={this.handleSubmit} className='register_modal'>
-
+            <div>
+                <Form horizontal onSubmit={this.handleSubmit}>
                     <FormGroup controlId='email'>
                         <ControlLabel><p className='field_name'>Email</p></ControlLabel>
                         <FormControl
@@ -56,7 +55,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='repeatPassword'>
-                        <ControlLabel><p className='field_name'>Repeat password</p></ControlLabel>
+                        <ControlLabel><p>Repeat password</p></ControlLabel>
                         <FormControl
                             value={this.state.repeatPassword}
                             onChange={this.handleChange}

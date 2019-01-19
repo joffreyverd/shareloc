@@ -23,12 +23,11 @@ class Signin extends Component {
     
     render() {
         return (
-            <>
             <div className='login'>
-                <Form horizontal onSubmit={this.handleSubmit} className='login_modal'>
+                <Form horizontal onSubmit={this.handleSubmit}>
 
                     <FormGroup controlId='email'>
-                        <ControlLabel><p className='field_name'>Pseudo</p></ControlLabel>
+                        <ControlLabel>Pseudo</ControlLabel>
                         <FormControl
                             type='email'
                             value={this.state.email}
@@ -37,7 +36,7 @@ class Signin extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='password'>
-                        <ControlLabel><p className='field_name'>Password</p></ControlLabel>
+                        <ControlLabel><p>Password</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
@@ -52,7 +51,6 @@ class Signin extends Component {
                     >Login</Button>
                 </Form>
             </div>
-            </>
         );
     }
 }
