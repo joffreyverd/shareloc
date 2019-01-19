@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import { withRouter } from 'react-router-dom';
-import "./Signin.css";
+import "../../ressources/css/signin.css";
 
 class Signin extends Component {
     state = {
@@ -24,31 +24,31 @@ class Signin extends Component {
     render() {
         return (
             <>
-            <div className="login">
-                <Form horizontal onSubmit={this.handleSubmit} class="login_modal">
+            <div className='login'>
+                <Form horizontal onSubmit={this.handleSubmit} className='login_modal'>
 
-                    <FormGroup controlId="email">
-                        <ControlLabel><p class="field_name">Pseudo</p></ControlLabel>
+                    <FormGroup controlId='email'>
+                        <ControlLabel><p className='field_name'>Pseudo</p></ControlLabel>
                         <FormControl
-                            type="email"
+                            type='email'
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="password">
-                        <ControlLabel><p class="field_name">Password</p></ControlLabel>
+                    <FormGroup controlId='password'>
+                        <ControlLabel><p className='field_name'>Password</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
+                            type='password'
                         />
                     </FormGroup>
                     
                     <Button
-                        bsStyle="primary"
+                        bsStyle='primary'
                         disabled={!this.props.validateFormFct(this.state.email, this.state.password)}
-                        type="submit"
+                        type='submit'
                     >Login</Button>
                 </Form>
             </div>

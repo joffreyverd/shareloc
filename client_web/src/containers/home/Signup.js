@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import { withRouter } from 'react-router-dom';
-import "./Signup.css";
+import "../../ressources/css/signup.css";
 
 class Signup extends Component {
     state = {
@@ -26,48 +26,48 @@ class Signup extends Component {
     render() {
         return (
             <>
-            <div className="register">
-                <Form horizontal onSubmit={this.handleSubmit} class="register_modal">
+            <div className='register'>
+                <Form horizontal onSubmit={this.handleSubmit} className='register_modal'>
 
-                    <FormGroup controlId="email">
-                        <ControlLabel><p class="field_name">Email</p></ControlLabel>
+                    <FormGroup controlId='email'>
+                        <ControlLabel><p className='field_name'>Email</p></ControlLabel>
                         <FormControl
-                            type="email"
+                            type='email'
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="pseudo">
-                        <ControlLabel><p class="field_name">Pseudo</p></ControlLabel>
+                    <FormGroup controlId='pseudo'>
+                        <ControlLabel><p className='field_name'>Pseudo</p></ControlLabel>
                         <FormControl
                             value={this.state.pseudo}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="password">
-                        <ControlLabel><p class="field_name">Password</p></ControlLabel>
+                    <FormGroup controlId='password'>
+                        <ControlLabel><p className='field_name'>Password</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
+                            type='password'
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="repeatPassword">
-                        <ControlLabel><p class="field_name">Repeat password</p></ControlLabel>
+                    <FormGroup controlId='repeatPassword'>
+                        <ControlLabel><p className='field_name'>Repeat password</p></ControlLabel>
                         <FormControl
                             value={this.state.repeatPassword}
                             onChange={this.handleChange}
-                            type="password"
+                            type='password'
                         />
                     </FormGroup>
                     
                     <Button
-                        bsStyle="primary"
+                        bsStyle='primary'
                         disabled={!this.props.validateFormFct(this.state.email, this.state.password)}
-                        type="submit"
+                        type='submit'
                     >Register</Button>
                 </Form>
             </div>
