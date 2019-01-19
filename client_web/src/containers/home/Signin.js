@@ -5,8 +5,8 @@ import "../../ressources/css/signin.css";
 
 class Signin extends Component {
     state = {
-        email: "",
-        password: "",
+        email: '',
+        password: '',
     };
 
     handleChange = (event) => {

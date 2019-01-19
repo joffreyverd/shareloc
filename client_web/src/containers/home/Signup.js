@@ -5,10 +5,10 @@ import "../../ressources/css/signup.css";
 
 class Signup extends Component {
     state = {
-        email: "",
-        pseudo: "",
-        password: "",
-        repeatPassword: "",
+        email: '',
+        pseudo: '',
+        password: '',
+        repeatPassword: '',
     };
 
     handleChange = (event) => {

@@ -19,6 +19,7 @@
 
 .card-full-width {
     width: 32%;
+    position: relative;
 }
 
 .card-identity {
@@ -41,12 +42,6 @@
     width: 30px;
     height: 30px;
     margin: 20px;
-}
-
-.add-button {
-    position: absolute;
-    top: 30px;
-    right: 30px;
 }
 
 .add-item-icon {

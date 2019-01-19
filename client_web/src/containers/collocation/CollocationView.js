@@ -96,6 +96,11 @@ export default class CollocationView extends React.Component {
     render() {
         return(
             <>
+                <div className='logo'>
+                    <img src='/img/logo.png'/>
+                    <p>ShareLoc</p>
+                </div>
+
                 <h1 className='main-title'>Ma collocation</h1>
 
                 <div className='collocations_components'>
@@ -124,12 +129,6 @@ export default class CollocationView extends React.Component {
                         items={dashboardObject}
                     />
                 </div>
-
-                <Link to='/newAchievedTask' className='add-button'>
-                    <Button>
-                        <Glyphicon glyph='plus'/>
-                    </Button>
-                </Link>
             </>
         );
     }

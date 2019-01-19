@@ -15,6 +15,12 @@ export default class Home extends Component {
     render() {
         return (
             <div className='body-wrapper'>
+
+                <div className='logo'>
+                    <img src='/img/logo.png'/>
+                    <p>ShareLoc</p>
+                </div>
+
                 <div className='register_modal'>
                     <div className='flex_buttons'>
                         <p id='register_button' 

@@ -1,0 +1,17 @@
+.main-title {
+    color: white;
+}
+
+.submission-form {
+    background-color: white;
+    border-radius: .6rem;
+    margin: 20px;
+    padding: 1rem;
+    color: #424152;
+    transition: 0.2s;
+}
+
+.submission-form:hover {
+    box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+}
