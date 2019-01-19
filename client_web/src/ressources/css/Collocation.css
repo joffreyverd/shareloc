@@ -14,6 +14,7 @@
 
 .card {
     width: 20%;
+    position: relative;
 }
 
 .card-full-width {
@@ -28,6 +29,30 @@
 .card-name {
     text-align: center;
     padding-bottom: 20px;
+}
+
+.icons {
+ display: flex;
+ justify-content: space-between;
+ width: 25%;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+}
+
+.add-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.add-item-icon {
+    position: absolute;
+    top: -20px;
+    right: -20px;
 }
 
 .collocations_components {
@@ -49,7 +74,7 @@
 }
 
 .item-name {
-    max-width: 60%;
+    max-width: 85%;
     font-size: .7em;
 }
 

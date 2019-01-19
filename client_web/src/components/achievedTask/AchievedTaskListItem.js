@@ -4,7 +4,7 @@ export default ({ name, score }) => (
 
     <li className='list-item'>
         
-        <img src='/src/ressources/img/first.png' alt='lol'/>
+        <img src='/img/first.png' width='30px' alt='lol'/>
 
         <h3 className='item-name'>{name}</h3>
 

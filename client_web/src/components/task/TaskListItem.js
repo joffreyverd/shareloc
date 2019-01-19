@@ -8,17 +8,9 @@ export default ({ name, onDelete }) => (
         
         <h3 className='item-name'>{name}</h3>
 
-        <div>
-            <Link to='/taskView'>
-                <Button>
-                    <Glyphicon glyph='pencil'/>
-                </Button>
-            </Link>
-
-            <Button onClick={onDelete}>
-                <Glyphicon glyph='trash'/>
-            </Button>
-        </div>
+        <Button onClick={onDelete}>
+            <Glyphicon glyph='trash'/>
+        </Button>
 
     </li>
 );

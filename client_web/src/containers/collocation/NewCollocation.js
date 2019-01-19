@@ -1,17 +1,17 @@
 import React from 'react';
 
-export default class TaskView extends React.Component {
+export default class NewCollocation extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        history.push('/taskView');
+        history.push('/newCollocation');
     }
 
     render() {
         return(
             <>
-                <h1>Modifier la tâche</h1>
+                <h1>Créer une collocation</h1>
             </>
         );
     }

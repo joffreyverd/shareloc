@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Button, Glyphicon} from 'react-bootstrap';
 import '../../ressources/css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
@@ -124,10 +125,11 @@ export default class CollocationView extends React.Component {
                     />
                 </div>
 
-                <div className='options'>
-                    <Link to="/newAchievedTask">J'ai accompli une tâche :)</Link>
-                </div>
-
+                <Link to='/newAchievedTask' className='add-button'>
+                    <Button>
+                        <Glyphicon glyph='plus'/>
+                    </Button>
+                </Link>
             </>
         );
     }

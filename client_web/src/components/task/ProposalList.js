@@ -8,15 +8,15 @@ export default ({ items = [], onDelete }) => (
     <div className="card">
 
         <div className='card-identity'>
-            <h2 className='card-name'>Propositions</h2>
-            <img src='/src/ressources/img/first.png'/>
+            <h2 className='card-name'>En vote</h2>
+            <img src='/img/proposal.png' className='icon'/>
         </div>
 
         <ul>
             {items.map(item => <ProposalListItem {...item} onDelete={onDelete} />)}
         </ul>
 
-        <Link to='/newTaskView'>
+        <Link to='/newTaskView' className='add-item-icon'>
             <Button>
                 <Glyphicon glyph='plus'/>
             </Button>
