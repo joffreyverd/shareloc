@@ -12,6 +12,10 @@ export default ({ items = [], onDelete }) => (
                 <img src='/img/team.png' className='icon'/>
             </div>
 
+            <div className='card-identity'>
+                <p className='description'>Voici la liste des membres de votre collocation.</p>
+            </div>
+
             <ul>
                 {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}
             </ul>

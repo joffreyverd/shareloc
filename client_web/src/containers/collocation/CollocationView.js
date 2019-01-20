@@ -1,11 +1,10 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {Button, Glyphicon} from 'react-bootstrap';
 import '../../ressources/css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
-import Scoring from '../../components/achievedTask/AchievedTaskList';
+import AchievedTaskList from '../../components/achievedTask/AchievedTaskList'
+import Scoring from '../../components/scoring/ScoringList';
 import Dashboard from '../../components/dashboard/myDashboard';
 
 const HousemateObject = [
@@ -34,33 +33,48 @@ const TaskObject = [
 
 const ProposalObject = [
     {
-        name: 'Etendre le linge'
+        name: 'Etendre le linge',
+        score: 10
     },
     {
-        name: 'Laver les WC'
+        name: 'Laver les WC',
+        score: 40
     }
 ];
 
-const scoringObject = [
+const ScoringObject = [
     {
         name: 'Stevy',
-        score: '127 pts'
+        score: 127
     },
     {
         name: 'Thomas',
-        score: '115 pts'
+        score: 115
     },
     {
         name: 'Benjamin',
-        score: '91 pts'
+        score: 91
     },
     {
         name: 'Joffrey',
-        score: '60 pts'
+        score: 60
     }
 ];
 
-const dashboardObject = [
+const AchievedObject = [
+    {
+        name: 'Stevy',
+        task: 'Faire la vaisselle',
+        date: '14/01/2018'
+    },
+    {
+        name: 'Joffrey',
+        task: 'Faire la vaisselle',
+        date: '18/01/2018'
+    }
+];
+
+const DashboardObject = [
     {
         task: 'Faire la vaisselle',
         number: 6,
@@ -113,20 +127,26 @@ export default class CollocationView extends React.Component {
                         items={TaskObject}
                         onDelete={this.deleteTask}
                     />
-                    
+                </div>
+
+                <div className='collocations_components'>
                     <UnapprouvedTaskList
                         items={ProposalObject}
                         onDelete={this.deleteUnapprouvedTask}
                     />
+                    
+                    <AchievedTaskList
+                        items={AchievedObject}
+                    />
                 </div>
 
                 <div className='dashboard-component'>
-                    <Scoring
-                        items={scoringObject}
-                    />
-
                     <Dashboard
-                        items={dashboardObject}
+                        items={DashboardObject}
+                    />
+                    
+                    <Scoring
+                        items={ScoringObject}
                     />
                 </div>
             </>

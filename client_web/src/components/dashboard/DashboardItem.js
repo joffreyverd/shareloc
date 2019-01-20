@@ -6,9 +6,9 @@ export default ({ task, number, total }) => (
 
         <h3 className='item-name'>{task}</h3>
 
-        <p className='item-name'>{number}</p>
+        <p className='item-name'>{number}x</p>
 
-        <p className='item-name'>{total}</p>
+        <p className='item-name'>{total} pts</p>
 
     </li>
 );

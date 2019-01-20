@@ -46,7 +46,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='password'>
-                        <ControlLabel><p className='field_name'>Password</p></ControlLabel>
+                        <ControlLabel><p className='field_name'>Mot de passe</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
@@ -55,7 +55,7 @@ class Signup extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='repeatPassword'>
-                        <ControlLabel><p>Repeat password</p></ControlLabel>
+                        <ControlLabel><p>Répéter mot de passe</p></ControlLabel>
                         <FormControl
                             value={this.state.repeatPassword}
                             onChange={this.handleChange}
@@ -67,7 +67,7 @@ class Signup extends Component {
                         bsStyle='primary'
                         disabled={!this.props.validateFormFct(this.state.email, this.state.password)}
                         type='submit'
-                    >Register</Button>
+                    >Go !</Button>
                 </Form>
             </div>
             </>

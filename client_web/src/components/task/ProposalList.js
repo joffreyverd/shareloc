@@ -8,8 +8,11 @@ export default ({ items = [], onDelete }) => (
     <div className="card">
 
         <div className='card-identity'>
-            <h2 className='card-name'>En vote</h2>
-            <img src='/img/proposal.png' className='icon'/>
+            <h2 className='card-name'>Voter une tâche</h2>
+        </div>
+
+        <div className='card-identity'>
+            <p className='description'>Acceptez ou refusez ces propositions pour en faire des tâches.</p>
         </div>
 
         <ul>

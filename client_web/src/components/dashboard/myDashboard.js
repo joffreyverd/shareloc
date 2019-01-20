@@ -5,11 +5,15 @@ import DashboardItem from './DashboardItem';
 
 export default ({ items = [] }) => (
     
-    <div className='card-full-width'>
+    <div className='card'>
 
         <div className='card-identity'>
-            <h2 className='card-name'>Accompli</h2>
+            <h2 className='card-name'>Mon activité</h2>
             <img src='/img/done.png' className='icon'/>
+        </div>
+
+        <div className='card-identity'>
+            <p className='description'>Les tâches que vous avez réalisé et validées par les autres membres.</p>
         </div>
 
         <Link to='/newAchievedTask' className='add-item-icon'>

@@ -10,6 +10,10 @@ export default ({ items = [], onDelete, onUpdate }) => (
             <img src='/img/task.png' className='icon'/>
         </div>
 
+        <div className='card-identity'>
+                <p className='description'>Les tâches votées par tous les membres.</p>
+        </div>
+
         <ul>
             {items.map(item => <TaskListItem {...item} onDelete={onDelete} onUpdate={onUpdate} />)}
         </ul>
