@@ -17,6 +17,11 @@
     position: relative;
 }
 
+.card-full-width {
+    width: 67%;
+    position: relative;
+}
+
 .card-identity {
     display: flex;
     justify-content: center;
@@ -33,6 +38,14 @@
     font-size: .5em;
     font-style: italic;
     text-align: start;
+}
+
+.refuse-icon {
+    color: #E8002B;
+}
+
+.accept-icon {
+    color: green;
 }
 
 .icons {
@@ -77,6 +90,72 @@
     margin-bottom: 15px;
     margin-top: 15px;
 }
+
+/****************** DASHBOARD CARD ******************/
+
+.dashboard-item-name-title, .dashboard-item-name {
+    font-size: .7em;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.dashboard-item-name-title {
+    width: 50%;
+    text-align: start;
+}
+
+.dashboard-item-name {
+    width: 25%;
+    text-align: center;
+}
+
+/****************** ACHIEVED TASK CARD ******************/
+
+.achieved-item-name-title, .achieved-item-name {
+    font-size: .7em;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.achieved-item-name-title {
+    width: 20%;
+    text-align: start;
+}
+
+.achieved-item-name {
+    width: 25%;
+    text-align: center;
+}
+
+/****************** PROPOSAL TASK CARD ******************/
+
+.proposal-item-name-title, .proposal-item-name {
+    font-size: .7em;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.proposal-item-name-title {
+    width: 50%;
+    text-align: start;
+}
+
+.proposal-item-name {
+    width: 30%;
+    text-align: center;
+}
+
+/****************** SCORING TASK CARD ******************/
+
+.scoring-item-name {
+    width: 30%;
+    text-align: start;
+    font-size: .7em;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+/*******************************************************/
 
 .collocation-list-item > h3 {
     flex-grow: 1;

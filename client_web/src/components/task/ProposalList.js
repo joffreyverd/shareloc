@@ -3,9 +3,9 @@ import {Link} from "react-router-dom";
 import {Button, Glyphicon} from 'react-bootstrap';
 import ProposalListItem from './ProposalListItem';
 
-export default ({ items = [], onDelete }) => (
+export default ({ items = [], onAccept, onRefuse }) => (
     
-    <div className="card">
+    <div className="card-full-width">
 
         <div className='card-identity'>
             <h2 className='card-name'>Voter une tâche</h2>
@@ -16,7 +16,7 @@ export default ({ items = [], onDelete }) => (
         </div>
 
         <ul>
-            {items.map(item => <ProposalListItem {...item} onDelete={onDelete} />)}
+            {items.map(item => <ProposalListItem {...item} onAccept={onAccept} onRefuse={onRefuse} />)}
         </ul>
 
         <Link to='/newTaskView' className='add-item-icon'>

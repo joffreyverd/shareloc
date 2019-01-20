@@ -5,7 +5,8 @@ import "../../ressources/css/forms.css";
 
 class NewAchievedTask extends Component {
     state = {
-        name: ''
+        name: '',
+        date: ''
     };
 
     createAchievedTask(name) {
@@ -39,10 +40,19 @@ class NewAchievedTask extends Component {
                     <Form horizontal onSubmit={this.handleSubmit}>
 
                         <FormGroup controlId='text'>
-                            <ControlLabel>Nom</ControlLabel>
+                            <ControlLabel>Tâche</ControlLabel>
                             <FormControl
                                 type='text'
                                 value={this.state.name}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+
+                        <FormGroup controlId='text'>
+                            <ControlLabel>Date</ControlLabel>
+                            <FormControl
+                                type='text'
+                                value={this.state.date}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>

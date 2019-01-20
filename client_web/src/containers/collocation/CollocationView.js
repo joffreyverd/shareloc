@@ -97,8 +97,20 @@ export default class CollocationView extends React.Component {
         alert('delete');
     }
 
-    deleteUnapprouvedTask = (e) => {
-        alert('delete');
+    acceptUnapprouvedTask = (e) => {
+        alert('accept');
+    }
+
+    refuseUnapprouvedTask = (e) => {
+        alert('refuse');
+    }
+
+    acceptAchievedTask = (e) => {
+        alert('accept');
+    }
+
+    refuseAchievedTask = (e) => {
+        alert('refuse');
     }
 
     handleSubmit = (event) => {
@@ -129,16 +141,17 @@ export default class CollocationView extends React.Component {
                     />
                 </div>
 
-                <div className='collocations_components'>
-                    <UnapprouvedTaskList
-                        items={ProposalObject}
-                        onDelete={this.deleteUnapprouvedTask}
-                    />
-                    
-                    <AchievedTaskList
-                        items={AchievedObject}
-                    />
-                </div>
+                <UnapprouvedTaskList
+                    items={ProposalObject}
+                    onAccept={this.acceptUnapprouvedTask}
+                    onRefuse={this.refuseUnapprouvedTask}
+                />
+                
+                <AchievedTaskList
+                    items={AchievedObject}
+                    onAccept={this.acceptAchievedTask}
+                    onRefuse={this.refuseAchievedTask}
+                />
 
                 <div className='dashboard-component'>
                     <Dashboard

@@ -6,9 +6,9 @@ export default ({ name, score }) => (
         
         <img src='/img/first.png' width='30px' alt='lol'/>
 
-        <h3 className='item-name'>{name}</h3>
+        <h3 className='scoring-item-name'>{name}</h3>
 
-        <p className='item-name'>{score} pts</p>
+        <p className='scoring-item-name'>{score} pts</p>
 
     </li>
 );

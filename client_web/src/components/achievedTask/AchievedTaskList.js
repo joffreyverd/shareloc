@@ -1,9 +1,9 @@
 import React from 'react';
 import AchievedTaskListItem from './AchievedTaskListItem';
 
-export default ({ items = [] }) => (
+export default ({ items = [], onAccept, onRefuse }) => (
 
-    <div className='card'>
+    <div className='card-full-width'>
 
         <div className='card-identity'>
             <h2 className='card-name'>Travail accompli ?</h2>
@@ -14,7 +14,7 @@ export default ({ items = [] }) => (
         </div>
 
         <ul>
-            {items.map(item => <AchievedTaskListItem {...item} />)}
+            {items.map(item => <AchievedTaskListItem {...item} onAccept={onAccept} onRefuse={onRefuse}  />)}
         </ul>
 
     </div>
