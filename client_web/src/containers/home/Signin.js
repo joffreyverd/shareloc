@@ -36,7 +36,7 @@ class Signin extends Component {
                     </FormGroup>
 
                     <FormGroup controlId='password'>
-                        <ControlLabel><p>Password</p></ControlLabel>
+                        <ControlLabel><p>Mot de passe</p></ControlLabel>
                         <FormControl
                             value={this.state.password}
                             onChange={this.handleChange}
@@ -48,7 +48,7 @@ class Signin extends Component {
                         bsStyle='primary'
                         disabled={!this.props.validateFormFct(this.state.email, this.state.password)}
                         type='submit'
-                    >Login</Button>
+                    >Go !</Button>
                 </Form>
             </div>
         );

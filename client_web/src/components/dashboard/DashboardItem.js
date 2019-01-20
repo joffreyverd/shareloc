@@ -4,11 +4,11 @@ export default ({ task, number, total }) => (
 
     <li className='list-item'>
 
-        <h3 className='item-name'>{task}</h3>
+        <h3 className='dashboard-item-name-title'>{task}</h3>
 
-        <p className='item-name'>{number}</p>
+        <p className='dashboard-item-name'>{number}x</p>
 
-        <p className='item-name'>{total}</p>
+        <p className='dashboard-item-name'>{total} pts</p>
 
     </li>
 );

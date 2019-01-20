@@ -1,14 +1,27 @@
 import React from 'react';
+import {Button, Glyphicon} from 'react-bootstrap';
 
-export default ({ name, score }) => (
+export default ({ name, task, date, onAccept, onRefuse }) => (
 
     <li className='list-item'>
-        
-        <img src='/img/first.png' width='30px' alt='lol'/>
 
-        <h3 className='item-name'>{name}</h3>
+        <h3 className='achieved-item-name-title'>{name}</h3>
 
-        <p className='item-name'>{score}</p>
+        <p className='achieved-item-name-title'>{task}</p>
+
+        <p className='achieved-item-name'>{date}</p>
+
+        <p className='achieved-item-name'>2/4</p>
+
+        <div>
+            <Button onClick={onAccept}>
+                <Glyphicon glyph='ok' className='accept-icon'/>
+            </Button>
+
+            <Button onClick={onRefuse}>
+                <Glyphicon glyph='remove' className='refuse-icon'/>
+            </Button>
+        </div>
 
     </li>
 );

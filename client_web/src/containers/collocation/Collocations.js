@@ -33,7 +33,7 @@ export default class Collocations extends React.Component {
                 </div>
                 
                 <h1 className='main-title'>Mes espaces</h1>
-                <div className='card-full-width'>
+                <div className='card'>
                     <CollocationList
                         items={CollocationsObject}
                         onDelete={this.deleteCollocation}
