@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 import CollocationList from '../../components/collocation/CollocationList';
 
@@ -28,7 +28,7 @@ export default class Collocations extends React.Component {
         return(
             <>
                 <div className='logo'>
-                    <img src='/img/logo.png'/>
+                    <img src='/img/logo.png' alt='logo'/>
                     <p>ShareLoc</p>
                 </div>
                 

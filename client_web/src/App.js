@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Home from "./containers/home/Home";
-import {Route, withRouter} from "react-router-dom";
+import Home from './containers/home/Home';
+import {Route, withRouter} from 'react-router-dom';
 import './ressources/css/app.css';
 
 import Collocations from './containers/collocation/Collocations';
@@ -15,7 +15,7 @@ import NewAchievedTask from './containers/achievedTask/NewAchievedTask';
 const AppRoute = ({component: Component, ...props}) => {
   return (
     <Route {...props} render={props => (
-      <div className="App">
+      <div className='App'>
       <Component {...props} />
       </div>
     )} />
@@ -26,16 +26,16 @@ class App extends Component {
   render() {
     return (
       <>
-        <Route exact path="/" component={Home} />
+        <Route exact path='/' component={Home} />
 
-        <AppRoute exact path="/collocations" component={Collocations} />
-        <AppRoute exact path="/collocationView" component={CollocationView} />
-        <AppRoute exact path="/newCollocation" component={NewCollocation} />
-        <AppRoute exact path="/housemates" component={Housemate} />
-        <AppRoute exact path="/newHousemateView" component={NewHousemateView} />
-        <AppRoute exact path="/tasks" component={Tasks} />
-        <AppRoute exact path="/newTaskView" component={NewTaskView} />
-        <AppRoute exact path="/newAchievedTask" component={NewAchievedTask} />
+        <AppRoute exact path='/collocations' component={Collocations} />
+        <AppRoute exact path='/collocationView' component={CollocationView} />
+        <AppRoute exact path='/newCollocation' component={NewCollocation} />
+        <AppRoute exact path='/housemates' component={Housemate} />
+        <AppRoute exact path='/newHousemateView' component={NewHousemateView} />
+        <AppRoute exact path='/tasks' component={Tasks} />
+        <AppRoute exact path='/newTaskView' component={NewTaskView} />
+        <AppRoute exact path='/newAchievedTask' component={NewAchievedTask} />
       </>
     );
   }

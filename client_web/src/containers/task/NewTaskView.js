@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-import "../../ressources/css/forms.css";
 
 class NewTask extends Component {
     state = {
@@ -30,7 +29,7 @@ class NewTask extends Component {
             <>
 
                 <div className='logo'>
-                    <img src='/img/logo.png'/>
+                    <img src='/img/logo.png' alt='logo'/>
                     <p>ShareLoc</p>
                 </div>
 

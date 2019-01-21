@@ -123,7 +123,7 @@ export default class CollocationView extends React.Component {
         return(
             <>
                 <div className='logo'>
-                    <img src='/img/logo.png'/>
+                    <img src='/img/logo.png' alt='logo'/>
                     <p>ShareLoc</p>
                 </div>
 
