@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../css/collocation.css';
+import Logo from '../../components/Logo';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
@@ -122,10 +123,7 @@ export default class CollocationView extends React.Component {
     render() {
         return(
             <>
-                <div className='logo'>
-                    <img src='/img/logo.png' alt='logo'/>
-                    <p>ShareLoc</p>
-                </div>
+                <Logo/>
 
                 <h1 className='main-title'>Ma collocation</h1>
 

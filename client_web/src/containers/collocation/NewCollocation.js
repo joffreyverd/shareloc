@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import Logo from '../../components/Logo';
 
 class NewCollocation extends Component {
     state = {
@@ -26,11 +27,7 @@ class NewCollocation extends Component {
     render() {
         return (
             <>
-
-                <div className='logo'>
-                    <img src='/img/logo.png' alt='logo'/>
-                    <p>ShareLoc</p>
-                </div>
+                <Logo/>
 
                 <h1 className='main-title'>Créer une collocation</h1>
 
