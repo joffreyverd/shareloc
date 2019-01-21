@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 import ProposalListItem from './ProposalListItem';
 
 export default ({ items = [], onAccept, onRefuse }) => (
     
-    <div className="card-full-width">
+    <div className='card-full-width'>
 
         <div className='card-identity'>
             <h2 className='card-name'>Voter une tâche</h2>

@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-import "../../ressources/css/signin.css";
 
 class Signin extends Component {
     state = {

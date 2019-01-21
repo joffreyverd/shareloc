@@ -7,7 +7,7 @@ export default ({ items = [], onDelete }) => (
 
         <div className='card-identity'>
             <h2 className='card-name'>Classement</h2>
-            <img src='/img/scoring.png' className='icon'/>
+            <img src='/img/scoring.png' className='icon' alt='scoring'/>
         </div>
 
         <div className='card-identity'>

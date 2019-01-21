@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 import DashboardItem from './DashboardItem';
 
@@ -9,7 +9,7 @@ export default ({ items = [] }) => (
 
         <div className='card-identity'>
             <h2 className='card-name'>Mon activité</h2>
-            <img src='/img/done.png' className='icon'/>
+            <img src='/img/done.png' className='icon' alt='done'/>
         </div>
 
         <div className='card-identity'>

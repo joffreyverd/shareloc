@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
+import React, { Component } from 'react';
+import Logo from '../../components/Logo';
+import { Button, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-import "../../ressources/css/forms.css";
 
 class NewAchievedTask extends Component {
     state = {
@@ -28,11 +28,7 @@ class NewAchievedTask extends Component {
     render() {
         return (
             <>
-
-                <div className='logo'>
-                    <img src='/img/logo.png'/>
-                    <p>ShareLoc</p>
-                </div>
+                <Logo/>
 
                 <h1 className='main-title'>Accomplir une tâche</h1>
 

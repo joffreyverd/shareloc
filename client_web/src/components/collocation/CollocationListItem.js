@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 
 export default ({ name, onDelete }) => (
@@ -8,7 +8,7 @@ export default ({ name, onDelete }) => (
         <h3 className='item-name'>{name}</h3>
         
         <div className='icons'>
-            <Link to="/collocationView">
+            <Link to='/collocationView'>
                 <Button>
                     <Glyphicon glyph='eye-open'/>
                 </Button>

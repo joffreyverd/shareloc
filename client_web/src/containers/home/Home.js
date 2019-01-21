@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Signin from "./Signin.js";
-import Signup from "./Signup.js";
-import "../../ressources/css/home.css";
+import Signin from './Signin.js';
+import Signup from './Signup.js';
+import Logo from '../../components/Logo';
 
 export default class Home extends Component {
     state = {
@@ -16,10 +16,7 @@ export default class Home extends Component {
         return (
             <div className='body-wrapper'>
 
-                <div className='logo'>
-                    <img src='/img/logo.png'/>
-                    <p>ShareLoc</p>
-                </div>
+                <Logo/>
 
                 <div className='register_modal'>
                     <div className='flex_buttons'>
