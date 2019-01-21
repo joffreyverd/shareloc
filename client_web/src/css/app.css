@@ -52,14 +52,12 @@
 
 #register_button:hover, #login_button:hover {
   cursor: pointer;
-  background-color: rgb(88, 86, 235);
   transition-duration: 0.2s;
-  color: white;
 }
 
 .active {
   color: white;
-  background-color: rgb(88, 86, 235);
+  background-color: rgb(63, 62, 107);
 }
 
 .logo {

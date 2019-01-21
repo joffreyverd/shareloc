@@ -21,10 +21,10 @@ export default class Home extends Component {
                 <div className='register_modal'>
                     <div className='flex_buttons'>
                         <p id='register_button' 
-                            className={this.state.option === false ? 'active' : ''} 
+                            className={this.state.option === true ? 'active' : ''} 
                             onClick={() => this.setState({option: false})}>Inscription</p>
                         <p id='login_button'
-                        className={this.state.option === false ? '' : 'active'} 
+                        className={this.state.option === true ? '' : 'active'} 
                         onClick={() => this.setState({option: true})}>Connexion</p>
                     </div>
                     {this.state.option ?
