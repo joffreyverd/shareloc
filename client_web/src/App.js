@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Home from './containers/home/Home';
 import {Route, withRouter} from 'react-router-dom';
 import './css/app.css';
-
 import Collocations from './containers/collocation/Collocations';
 import CollocationView from './containers/collocation/CollocationView';
 import NewCollocation from './containers/collocation/NewCollocation';
@@ -23,22 +22,22 @@ const AppRoute = ({component: Component, ...props}) => {
 }
 
 class App extends Component {
-  render() {
-    return (
-      <>
-        <Route exact path='/' component={Home} />
+    render() {
+        return (
+            <>
+                <Route exact path='/' component={Home} />
 
-        <AppRoute exact path='/collocations' component={Collocations} />
-        <AppRoute exact path='/collocationView' component={CollocationView} />
-        <AppRoute exact path='/newCollocation' component={NewCollocation} />
-        <AppRoute exact path='/housemates' component={Housemate} />
-        <AppRoute exact path='/newHousemateView' component={NewHousemateView} />
-        <AppRoute exact path='/tasks' component={Tasks} />
-        <AppRoute exact path='/newTaskView' component={NewTaskView} />
-        <AppRoute exact path='/newAchievedTask' component={NewAchievedTask} />
-      </>
-    );
-  }
+                <AppRoute exact path='/collocations' component={Collocations} />
+                <AppRoute exact path='/collocationView' component={CollocationView} />
+                <AppRoute exact path='/newCollocation' component={NewCollocation} />
+                <AppRoute exact path='/housemates' component={Housemate} />
+                <AppRoute exact path='/newHousemateView' component={NewHousemateView} />
+                <AppRoute exact path='/tasks' component={Tasks} />
+                <AppRoute exact path='/newTaskView' component={NewTaskView} />
+                <AppRoute exact path='/newAchievedTask' component={NewAchievedTask} />
+            </>
+        );
+    }
 }
 
 export default withRouter(App);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { checkStatus } from '../../Utils';
 import '../../css/collocation.css';
 import Logo from '../../components/Logo';
 import HousemateList from '../../components/housemate/HousemateList';
@@ -7,21 +8,6 @@ import UnapprouvedTaskList from '../../components/task/ProposalList';
 import AchievedTaskList from '../../components/achievedTask/AchievedTaskList'
 import Scoring from '../../components/scoring/ScoringList';
 import Dashboard from '../../components/dashboard/myDashboard';
-
-const HousemateObject = [
-    {
-        name: 'Stevy'
-    },
-    {
-        name: 'Thomas'
-    },
-    {
-        name: 'Benjamin'
-    },
-    {
-        name: 'Joffrey'
-    }
-];
 
 const TaskObject = [
     {
@@ -89,6 +75,23 @@ const DashboardObject = [
 ];
 
 export default class CollocationView extends React.Component {
+    state = {
+        HousemateObject: []
+    }
+
+    componentDidMount() {
+       fetch('http://jsonplaceholder.typicode.com/users', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+       })
+       .then(checkStatus)
+       .then((res) => res.json())
+       .then((data) => {
+           this.setState({ HousemateObject: data });
+       })
+       .catch(() => this.setState({ HousemateObject: null }));
+    }
 
     deleteHousemate = (e) => {
         alert('delete');
@@ -129,7 +132,7 @@ export default class CollocationView extends React.Component {
 
                 <div className='collocations_components'>
                     <HousemateList
-                        items={HousemateObject}
+                        items={this.state.HousemateObject}
                         onDelete={this.deleteHousemate}
                     />
 
