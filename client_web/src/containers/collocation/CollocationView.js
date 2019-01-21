@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../ressources/css/collocation.css';
+import '../../css/collocation.css';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
 import UnapprouvedTaskList from '../../components/task/ProposalList';
