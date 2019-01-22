@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/collocation.css';
-import { getMethod } from '../../components/getMethod';
+import { getMethod, putMethod, deleteMethod } from '../../components/httpMethods';
 import { checkStatus } from '../../components/Utils';
 import Logo from '../../components/Logo';
 import HousemateList from '../../components/housemate/HousemateList';
@@ -68,6 +68,8 @@ const DashboardObject = [
 
 export default class CollocationView extends React.Component {
     state = {
+        collocationName: 'Ma collocation',
+        isCollocationAdmin: true,
         HousemateObject: [],
         TaskObject: [],
         AchievedObject: [],
@@ -75,6 +77,10 @@ export default class CollocationView extends React.Component {
         DashboardObject: [],
         ScoringObject: []
     }
+
+    /*
+    **************************** GENERAL METHODS ****************************
+    */
 
     componentDidMount() {
         getMethod('http://jsonplaceholder.typicode.com/users')
@@ -102,34 +108,46 @@ export default class CollocationView extends React.Component {
         }));
     }
 
-    deleteHousemate = (e) => {
-        alert('delete');
-    }
-
-    deleteTask = (e) => {
-        alert('delete');
-    }
-
-    acceptUnapprouvedTask = (e) => {
-        alert('accept');
-    }
-
-    refuseUnapprouvedTask = (e) => {
-        alert('refuse');
-    }
-
-    acceptAchievedTask = (e) => {
-        alert('accept');
-    }
-
-    refuseAchievedTask = (e) => {
-        alert('refuse');
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
         history.push('/collocationView');
+    }
+
+    /*
+     **************************** HOUSEMATE METHODS ****************************
+     */
+
+    deleteHousemate = (e) => {
+        deleteMethod('lol');
+    }
+
+    deleteTask = (e) => {
+        deleteMethod('lol');
+    }
+
+    /*
+     **************************** PROPOSAL METHODS ****************************
+     */
+
+    acceptUnapprouvedTask = (e) => {
+        putMethod('lol');
+    }
+
+    refuseUnapprouvedTask = (e) => {
+        putMethod('lol');
+    }
+
+    /*
+     **************************** ACHIEVED TASKS METHODS ****************************
+     */
+
+    acceptAchievedTask = (e) => {
+        putMethod('lol');
+    }
+
+    refuseAchievedTask = (e) => {
+        putMethod('lol');
     }
 
     render() {
@@ -137,16 +155,18 @@ export default class CollocationView extends React.Component {
             <>
                 <Logo/>
 
-                <h1 className='main-title'>Ma collocation</h1>
+                <h1 className='main-title'>{this.state.collocationName}</h1>
 
                 <div className='collocations_components'>
                     <HousemateList
                         items={this.state.HousemateObject}
+                        isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteHousemate}
                     />
 
                     <TaskList
                         items={this.state.TaskObject}
+                        isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteTask}
                     />
                 </div>

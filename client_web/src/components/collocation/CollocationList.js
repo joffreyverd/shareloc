@@ -1,9 +1,9 @@
 import React from 'react';
 import CollocationListItem from './CollocationListItem';
 
-export default ({ items = [], onDelete, onUpdate }) => (
+export default ({ items = [], isAdmin, onDelete, onUpdate }) => (
 
     <ul className='collocation-list'>
-        {items.map(item => <CollocationListItem {...item} onDelete={onDelete} onUpdate={onUpdate} />)}
+        {items.map(item => <CollocationListItem {...item} isAdmin={isAdmin} onDelete={onDelete} onUpdate={onUpdate} />)}
     </ul>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskListItem from './TaskListItem';
 
-export default ({ items = [], onDelete }) => (
+export default ({ items = [], isAdmin, onDelete }) => (
     
     <div className='card'>
 
@@ -15,7 +15,7 @@ export default ({ items = [], onDelete }) => (
         </div>
 
         <ul>
-            {items.map(item => <TaskListItem {...item} onDelete={onDelete} />)}
+            {items.map(item => <TaskListItem {...item} isAdmin={isAdmin} onDelete={onDelete} />)}
         </ul>
 
     </div>

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 import HousemateListItem from './HousemateListItem';
 
-export default ({ items = [], onDelete }) => (
+export default ({ items = [], isAdmin, onDelete }) => (
         
         <div className='card'>
 
@@ -17,14 +17,16 @@ export default ({ items = [], onDelete }) => (
             </div>
 
             <ul>
-                {items.map(item => <HousemateListItem {...item} onDelete={onDelete} />)}
+                {items.map(item => <HousemateListItem {...item} isAdmin={isAdmin} onDelete={onDelete} />)}
             </ul>
-
+            
+            {isAdmin ?
             <Link to='/newHousemateView' className='add-item-icon'>
                 <Button>
                     <Glyphicon glyph='plus'/>
                 </Button>
-            </Link>
+            </Link> : ''
+            }
 
         </div>
 );

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Logo from '../../components/Logo';
-import { Button, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
+import { Button, DropdownButton, MenuItem, FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
 class NewAchievedTask extends Component {
     state = {
+        choosenTask: 'Choisir',
         name: '',
         date: ''
     };
@@ -37,11 +38,11 @@ class NewAchievedTask extends Component {
 
                         <FormGroup controlId='text'>
                             <ControlLabel>Tâche</ControlLabel>
-                            <FormControl
-                                type='text'
-                                value={this.state.name}
-                                onChange={this.handleChange}
-                            />
+                                <DropdownButton title={this.state.choosenTask}>
+                                    <MenuItem eventKey="1">Tâches 1 - x pts</MenuItem>
+                                    <MenuItem eventKey="2">Tâches 2 - x pts</MenuItem>
+                                    <MenuItem eventKey="3">Tâches 3 - x pts</MenuItem>
+                                </DropdownButton>
                         </FormGroup>
 
                         <FormGroup controlId='text'>
