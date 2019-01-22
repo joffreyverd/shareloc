@@ -6,14 +6,11 @@ import java.util.List;
 import javax.persistence.Query;
 
 import api.dao.DAOCollocUser;
-import api.dao.DAOCollocUserId;
 import api.model.CollocUser;
-import api.model.CollocUserId;
-import api.model.Collocation;
+import api.model.User;
 
 public class CollocUserManager {
 	static DAOCollocUser daoCollocUser = new DAOCollocUser();
-	static DAOCollocUserId daoCollocUserId = new DAOCollocUserId();
 
 	//recupère les collocations d'un user
 	public static List<CollocUser> getAllCollocUser(int idUser) {
@@ -47,10 +44,15 @@ public class CollocUserManager {
             return (List<CollocUser>) uc;
         else
             return null;
-	}
+	}	
 	
-	public static Boolean insertUserInColloc(int idUser, int idColloc) {
-		if(daoCollocUserId.create(new CollocUserId(idUser,idColloc)) != null ) return true;
+	public static Boolean insertUserInColloc(String login, int idColloc) {
+		User u = UserManager.getUserByLogin(login);
+		if(u != null) {
+			System.out.println(u);
+			if(daoCollocUser.create(new CollocUser(u.getIdUser(),idColloc)) != null ) return true;
+			else return false;
+		}		
 		return false;
 	}
 }

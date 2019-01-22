@@ -21,13 +21,21 @@ public class CollocUserId implements Serializable{
 	@Column(name="id_user")
 	private int idUser;
 	
+	public CollocUserId( int idUser, int idColloc) {
+		this.idCollocation = idColloc;
+		this.idUser = idUser;
+	}
+
 	public CollocUserId() {
-		
+	
 	}
 	
-	public CollocUserId(int colloc, int user) {
-		this.idCollocation = colloc;
-		this.idUser = user;
+	public void setIdCollocation(int idCollocation) {
+		this.idCollocation = idCollocation;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 	public int getIdCollocation() {

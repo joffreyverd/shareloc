@@ -58,11 +58,11 @@ public class CollocUserPath {
 	}
 	
 	@POST
-	@Path("/addUserToColloc")
+	@Path("/addUserToColloc/{idColloc}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response insertUserInColloc(JSONObject params) {
-		if(CollocUserManager.insertUserInColloc(Integer.parseInt(params.get("idUser").toString()), Integer.parseInt(params.get("idColloc").toString())))
+	public Response insertUserInColloc(JSONObject params, @PathParam("idColloc") int idColloc) {
+		if(CollocUserManager.insertUserInColloc(params.get("login").toString(), idColloc))
 			return Response.status(Status.CREATED).build();
 		return Response.status(Status.CONFLICT).build();
 	}

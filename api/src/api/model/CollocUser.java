@@ -25,6 +25,11 @@ public class CollocUser implements Serializable {
 	@Column(name="admin_collocation")
 	private Boolean adminCollocation;
 
+	public CollocUser(int idUser, int idColloc) {
+		this.id = new CollocUserId(idUser, idColloc); 
+		this.adminCollocation = false;
+	}
+	
 	public CollocUser() {
 	}
 
