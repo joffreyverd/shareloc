@@ -12,6 +12,7 @@ export default class Home extends Component {
         return email.length > 0 && password.length > 0;
     }
 
+    /*
     signin = (credentials) => {
         return fetch('http://localhost:8080/shareloc_api/api/signin', {
             method: 'POST',
@@ -25,6 +26,7 @@ export default class Home extends Component {
             this.props.history.push('/collocations');
         });
     };
+
     signup = (credentials) => {
         return fetch('http://localhost:8080/shareloc_api/api/signup', {
             method: 'POST',
@@ -39,6 +41,7 @@ export default class Home extends Component {
         window.localStorage.removeItem('token');
         this.props.history.push('/');
     };
+    */
 
     render() {
         return (
@@ -61,8 +64,6 @@ export default class Home extends Component {
                     }
                 </div>  
             </div>
-            
-
         );
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { checkStatus } from '../../Utils';
 import '../../css/collocation.css';
+import { getMethod } from '../../components/getMethod';
+import { checkStatus } from '../../components/Utils';
 import Logo from '../../components/Logo';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
@@ -8,15 +9,6 @@ import UnapprouvedTaskList from '../../components/task/ProposalList';
 import AchievedTaskList from '../../components/achievedTask/AchievedTaskList'
 import Scoring from '../../components/scoring/ScoringList';
 import Dashboard from '../../components/dashboard/myDashboard';
-
-const TaskObject = [
-    {
-        name: 'Faire la vaisselle'
-    },
-    {
-        name: 'Passer l\'aspirateur'
-    }
-];
 
 const ProposalObject = [
     {
@@ -76,21 +68,38 @@ const DashboardObject = [
 
 export default class CollocationView extends React.Component {
     state = {
-        HousemateObject: []
+        HousemateObject: [],
+        TaskObject: [],
+        AchievedObject: [],
+        ProposalObject: [],
+        DashboardObject: [],
+        ScoringObject: []
     }
 
     componentDidMount() {
-       fetch('http://jsonplaceholder.typicode.com/users', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify()
-       })
-       .then(checkStatus)
-       .then((res) => res.json())
-       .then((data) => {
-           this.setState({ HousemateObject: data });
-       })
-       .catch(() => this.setState({ HousemateObject: null }));
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                HousemateObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            HousemateObject: null
+        }));
+
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                TaskObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            TaskObject: null
+        }));
     }
 
     deleteHousemate = (e) => {
@@ -137,7 +146,7 @@ export default class CollocationView extends React.Component {
                     />
 
                     <TaskList
-                        items={TaskObject}
+                        items={this.state.TaskObject}
                         onDelete={this.deleteTask}
                     />
                 </div>
