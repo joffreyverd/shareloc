@@ -2,10 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 
-export default ({ name, isAdmin, onDelete }) => (
+export default ({ username, isAdmin, onDelete }) => (
 
     <li className='list-item'>
-        <h3 className='item-name'>{name}</h3>
+        <h3 className='item-name'>{username}</h3>
         
         <div className='icons'>
 
