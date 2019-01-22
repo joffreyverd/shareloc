@@ -14,6 +14,10 @@ const CollocationsObject = [
 ];
 
 export default class Collocations extends React.Component {
+    state = {
+        userName: 'Joffrey',
+        isCollocationAdmin: true
+    }
 
     deleteCollocation = (e) => {
         alert('delete');
@@ -35,15 +39,19 @@ export default class Collocations extends React.Component {
                 <div className='card'>
                     <CollocationList
                         items={CollocationsObject}
+                        isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteCollocation}
                         onUpdate={this.updateCollocation}
                     />
 
+                    {this.state.isCollocationAdmin ?
                     <Link to='/newCollocation' className='add-item-icon'>
                         <Button>
                             <Glyphicon glyph='plus'/>
                         </Button>
-                    </Link>
+                    </Link> : ''
+                    }
+
                 </div>
 
 
