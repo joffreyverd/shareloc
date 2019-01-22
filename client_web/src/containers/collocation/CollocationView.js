@@ -83,6 +83,7 @@ export default class CollocationView extends React.Component {
     */
 
     componentDidMount() {
+        //get the HousemateObject
         getMethod('http://jsonplaceholder.typicode.com/users')
         .then(checkStatus)
         .then((res) => res.json())
@@ -95,6 +96,7 @@ export default class CollocationView extends React.Component {
             HousemateObject: null
         }));
 
+        //get the TaskObject
         getMethod('http://jsonplaceholder.typicode.com/users')
         .then(checkStatus)
         .then((res) => res.json())
@@ -105,6 +107,19 @@ export default class CollocationView extends React.Component {
         })
         .catch(() => this.setState({ 
             TaskObject: null
+        }));
+
+        //get the ProposalObject
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                ProposalObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            ProposalObject: null
         }));
     }
 
@@ -184,13 +199,8 @@ export default class CollocationView extends React.Component {
                 />
 
                 <div className='dashboard-component'>
-                    <Dashboard
-                        items={DashboardObject}
-                    />
-                    
-                    <Scoring
-                        items={ScoringObject}
-                    />
+                    <Dashboard items={DashboardObject}/>
+                    <Scoring items={ScoringObject}/>
                 </div>
             </>
         );
