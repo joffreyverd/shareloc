@@ -1,5 +1,7 @@
 package api.path;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -16,8 +18,10 @@ import org.jose4j.json.internal.json_simple.JSONObject;
 
 import api.controleur.AchievedServiceManager;
 import api.controleur.CollocationManager;
+import api.controleur.ServiceManager;
 import api.model.AchievedService;
 import api.model.Collocation;
+import api.model.Service;
 import api.security.SigninNeeded;
 
 @Path("/AchievedService")
@@ -41,6 +45,30 @@ public class AchievedServicePath {
 		AchievedService as = AchievedServiceManager.getAchievedService(idAchievedService);
 		if (as != null) {
 			return Response.ok().entity(as).build();
+		}
+		else return null;
+	}
+	
+	@SigninNeeded
+	@GET
+	@Path("/getAchievedServiceAcceptedUser/{idUser}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllAchievedServiceValidUser(@PathParam("idUser") int idUser) {
+		List<AchievedService> las = AchievedServiceManager.getAllAchievedServiceValidUser(idUser);
+		if (las != null) {
+			return Response.ok().entity(las).build();
+		}
+		else return null;
+	}
+	
+	@SigninNeeded
+	@GET
+	@Path("/getAchievedServiceAcceptedColloc/{idColloc}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllAchievedServiceValidColloc(@PathParam("idColloc") int idColloc) {
+		List<AchievedService> las = AchievedServiceManager.getAllAchievedServiceValidColloc(idColloc);
+		if (las != null) {
+			return Response.ok().entity(las).build();
 		}
 		else return null;
 	}

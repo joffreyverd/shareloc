@@ -9,17 +9,30 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="VOTE_SERVICE")
-@NamedQuery(name="VoteService.findAll", query="SELECT v FROM VoteService v")
+@NamedQueries({
+	@NamedQuery(name="VoteService.findAll", query="SELECT v FROM VoteService v"),
+	@NamedQuery(name="VoteService.countNbrVote", query="SELECT count(v) FROM VoteService v WHERE v.id.idService = :idService"),
+	@NamedQuery(name="VoteService.countNbrVoteAccepted", query="SELECT count(v) FROM VoteService v WHERE v.id.idService = :idService AND v.vote = 1")
+})
 public class VoteService implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="admin_service")
 	private int adminService;
 	
+	@Column(name="vote")
+	private int vote;
+	
 	@EmbeddedId
 	private VoteServiceId id;
 
-	public VoteService() {
+	public VoteService(){
+		
+	}
+	
+	public VoteService(int vote, int idColloc, int idService, int idUser) {
+	this.id = new VoteServiceId(idColloc, idService, idUser);
+	this.vote = vote;
 	}
 
 	public int getAdminService() {

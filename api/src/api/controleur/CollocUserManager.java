@@ -55,4 +55,17 @@ public class CollocUserManager {
 		}		
 		return false;
 	}
+	
+	public static int getCountUser(int idColloc) {
+        Query q = daoCollocUser.getEntityManager().createNamedQuery("User.getCountUser").setParameter("idColloc", idColloc);
+        int nbrUser = 0;
+        try
+        {
+            nbrUser = (int) q.getSingleResult();
+        }
+        catch(Exception e)
+        {}
+        
+        return nbrUser;
+    }
 }

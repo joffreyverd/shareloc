@@ -50,4 +50,12 @@ public class UserPath {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 	}
+	
+	@SigninNeeded
+	@GET
+	@Path("/getPoints/{idUser}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public int getPoints(@PathParam("idUser") int idUser) {
+		return UserManager.getPoints(idUser);
+	}	
 }

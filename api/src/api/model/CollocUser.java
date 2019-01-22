@@ -14,7 +14,8 @@ import javax.persistence.*;
 @NamedQuery(name="CollocUser.findAll", query="SELECT c FROM CollocUser c"),
 @NamedQuery(name="CollocUser.getByCollocId", query="SELECT c FROM CollocUser c WHERE c.id.idCollocation= :id"),
 @NamedQuery(name="CollocUser.getByUserId", query="SELECT c FROM CollocUser c WHERE c.id.idUser= :id"),
-@NamedQuery(name="CollocUser.getAdminColloc", query="SELECT c FROM CollocUser c WHERE c.id.idCollocation= :id AND c.adminCollocation=True")
+@NamedQuery(name="CollocUser.getAdminColloc", query="SELECT c FROM CollocUser c WHERE c.id.idCollocation= :id AND c.adminCollocation=True"),
+@NamedQuery(name="CollocUser.getCountUser", query="SELECT count(c) FROM CollocUser c WHERE c.id.idCollocation= :idColloc")
 })
 public class CollocUser implements Serializable {
 	private static final long serialVersionUID = 1L;

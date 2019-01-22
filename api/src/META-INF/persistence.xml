@@ -11,6 +11,8 @@
 		<class>api.model.User</class>
 		<class>api.model.VoteService</class>
 		<class>api.model.VoteServiceId</class>
+		<class>api.model.VoteAchievedService</class>
+		<class>api.model.VoteAchievedServiceId</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3000/shareloc_js"/>
 			<property name="javax.persistence.jdbc.user" value="j.verd"/>

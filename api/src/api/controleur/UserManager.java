@@ -6,8 +6,10 @@ import java.util.List;
 import javax.persistence.Query;
 
 import api.dao.DAOUser;
+import api.model.AchievedService;
 import api.model.CollocUser;
 import api.model.Collocation;
+import api.model.Service;
 import api.model.User;
 
 public class UserManager {
@@ -87,6 +89,16 @@ public class UserManager {
 //		}
 //		return false;
 //	}
+	
+	public static int getPoints(int idUser) {
+		List<AchievedService> las = AchievedServiceManager.getAllAchievedServiceValidUser(idUser);
+		int points = 0;
+		if(las == null) return 0;
+		for(int i = 0; i < las.size();i++) {
+			points += ServiceManager.getService(las.get(i).getIdService()).getScoreService();
+		}
+		return points;
+	}
 		
 	public static boolean deleteUser(int idUser) {
 		User u = daoUser.find(idUser);

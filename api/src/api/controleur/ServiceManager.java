@@ -23,24 +23,56 @@ public class ServiceManager {
 		return v;
 	}
 	
-//	public static List<CollocUser> getAllCollocUser(int idUser) {
-//		Query q = daoCollocUser.getEntityManager().createNamedQuery("CollocUser.getByUserId").setParameter("id", idUser);
-//        List<CollocUser> cu = new ArrayList<>();
-//		try
-//        {
-//			cu = (List<CollocUser>) q.getResultList();
-//        }
-//        catch(Exception e)
-//        {}
-//        
-//        if(cu != null)
-//            return (List<CollocUser>) cu;
-//        else
-//            return null;
-//	}
+	public static List<Service> getAllServiceCreateColloc(int idColloc) {
+		Query q = daoService.getEntityManager().createNamedQuery("Service.getByStatusCreate").setParameter("id", idColloc);
+        List<Service> s = new ArrayList<>();
+		try
+        {
+			s = (List<Service>) q.getResultList();
+        }
+        catch(Exception e)
+        {}
+        
+        if(s != null)
+            return (List<Service>) s;
+        else
+            return null;
+	}
 	
-	public static Boolean createService(String name, String description,int points) {
-		if(daoService.create(new Service(name,description,points)) != null ) return true;
+	public static List<Service> getAllServiceValidColloc(int idColloc) {
+		Query q = daoService.getEntityManager().createNamedQuery("Service.getByStatusAccepted").setParameter("id", idColloc);
+        List<Service> s = new ArrayList<>();
+		try
+        {
+			s = (List<Service>) q.getResultList();
+        }
+        catch(Exception e)
+        {}
+        
+        if(s != null)
+            return (List<Service>) s;
+        else
+            return null;
+	}
+	
+	public static List<Service> getAllServiceValid() {
+		Query q = daoService.getEntityManager().createNamedQuery("Service.getByAccepted");
+        List<Service> s = new ArrayList<>();
+		try
+        {
+			s = (List<Service>) q.getResultList();
+        }
+        catch(Exception e)
+        {}
+        
+        if(s != null)
+            return (List<Service>) s;
+        else
+            return null;
+	}
+	
+	public static Boolean createService(int idColloc, String name, String description,int points) {
+		if(daoService.create(new Service(idColloc, name,description,points)) != null ) return true;
 		return false;
 	}
 	

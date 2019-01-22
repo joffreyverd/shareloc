@@ -48,12 +48,36 @@ public class ServicePath {
 	}
 	
 	@SigninNeeded
+	@GET
+	@Path("/getServiceCreate/{idColloc}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllServiceCreateColloc(@PathParam("idColloc") int idColloc) {
+		List<Service> ls = ServiceManager.getAllServiceCreateColloc(idColloc);
+		if (ls != null) {
+			return Response.ok().entity(ls).build();
+		}
+		else return null;
+	}
+	
+	@SigninNeeded
+	@GET
+	@Path("/getServiceAccepted/{idColloc}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllServiceValidColloc(@PathParam("idColloc") int idColloc) {
+		List<Service> ls = ServiceManager.getAllServiceValidColloc(idColloc);
+		if (ls != null) {
+			return Response.ok().entity(ls).build();
+		}
+		else return null;
+	}
+	
+	@SigninNeeded
 	@POST
-	@Path("/createService")
+	@Path("/createService/{idColloc}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createService(JSONObject params) {
-		if(ServiceManager.createService(params.get("name").toString(), params.get("description").toString() ,(int)params.get("points")))
+	public Response createService(@PathParam("idColloc") int idColloc, JSONObject params) {
+		if(ServiceManager.createService(idColloc, params.get("name").toString(), params.get("description").toString() ,(int)params.get("points")))
 			return Response.status(Status.CREATED).build();
 		return Response.status(Status.CONFLICT).build();
 	}

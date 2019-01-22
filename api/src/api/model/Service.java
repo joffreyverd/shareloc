@@ -13,8 +13,9 @@ import javax.persistence.*;
 @NamedQueries({
 @NamedQuery(name="Service.findAll", query="SELECT s FROM Service s"),
 @NamedQuery(name="Service.getByServiceId", query="SELECT s FROM Service s WHERE s.idService= :id"),
-@NamedQuery(name="Service.getByStatusCreate", query="SELECT s FROM Service s WHERE s.serviceStatus= 0"),
-@NamedQuery(name="Service.getByStatusAccepted", query="SELECT s FROM Service s WHERE s.serviceStatus= 1")
+@NamedQuery(name="Service.getByAccepted", query="SELECT s FROM Service s WHERE s.serviceStatus= 1"),
+@NamedQuery(name="Service.getByStatusCreate", query="SELECT s FROM Service s WHERE s.serviceStatus= 0 AND s.idCollocation = :id"),
+@NamedQuery(name="Service.getByStatusAccepted", query="SELECT s FROM Service s WHERE s.serviceStatus= 1 AND s.idCollocation = :id")
 })
 public class Service implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +25,9 @@ public class Service implements Serializable {
 	@Column(name="id_service")
 	private int idService;
 
+	@Column(name="id_collocation")
+	private int idCollocation;
+	
 	@Column(name="name_service")
 	private String nameService;
 
@@ -39,7 +43,8 @@ public class Service implements Serializable {
 	public Service() {
 	}
 
-	public Service(String name, String description, int points) {
+	public Service(int idColloc, String name, String description, int points) {
+		this.idCollocation = idColloc;
 		this.nameService = name;
 		this.serviceDescription = description;
 		this.scoreService = points;
