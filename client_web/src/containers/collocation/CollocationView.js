@@ -10,62 +10,6 @@ import AchievedTaskList from '../../components/achievedTask/AchievedTaskList'
 import Scoring from '../../components/scoring/ScoringList';
 import Dashboard from '../../components/dashboard/myDashboard';
 
-const ProposalObject = [
-    {
-        name: 'Etendre le linge',
-        score: 10
-    },
-    {
-        name: 'Laver les WC',
-        score: 40
-    }
-];
-
-const ScoringObject = [
-    {
-        name: 'Stevy',
-        score: 127
-    },
-    {
-        name: 'Thomas',
-        score: 115
-    },
-    {
-        name: 'Benjamin',
-        score: 91
-    },
-    {
-        name: 'Joffrey',
-        score: 60
-    }
-];
-
-const AchievedObject = [
-    {
-        name: 'Stevy',
-        task: 'Faire la vaisselle',
-        date: '14/01/2018'
-    },
-    {
-        name: 'Joffrey',
-        task: 'Faire la vaisselle',
-        date: '18/01/2018'
-    }
-];
-
-const DashboardObject = [
-    {
-        task: 'Faire la vaisselle',
-        number: 6,
-        total: 15
-    },
-    {
-        task: 'Passer l\'aspirateur',
-        number: 3,
-        total: 45
-    }
-];
-
 export default class CollocationView extends React.Component {
     state = {
         collocationName: 'Ma collocation',
@@ -117,9 +61,49 @@ export default class CollocationView extends React.Component {
             this.setState({ 
                 ProposalObject: data
             });
+            console.log(data);
         })
         .catch(() => this.setState({ 
             ProposalObject: null
+        }));
+
+        //get the AchievedObject
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                AchievedObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            AchievedObject: null
+        }));
+
+        //get the AchievedObject
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                ScoringObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            ScoringObject: null
+        }));
+
+        //get the AchievedObject
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                DashboardObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            DashboardObject: null
         }));
     }
 
@@ -187,20 +171,20 @@ export default class CollocationView extends React.Component {
                 </div>
 
                 <UnapprouvedTaskList
-                    items={ProposalObject}
+                    items={this.state.ProposalObject}
                     onAccept={this.acceptUnapprouvedTask}
                     onRefuse={this.refuseUnapprouvedTask}
                 />
                 
                 <AchievedTaskList
-                    items={AchievedObject}
+                    items={this.state.AchievedObject}
                     onAccept={this.acceptAchievedTask}
                     onRefuse={this.refuseAchievedTask}
                 />
 
                 <div className='dashboard-component'>
-                    <Dashboard items={DashboardObject}/>
-                    <Scoring items={ScoringObject}/>
+                    <Dashboard items={this.state.DashboardObject}/>
+                    <Scoring items={this.state.ScoringObject}/>
                 </div>
             </>
         );

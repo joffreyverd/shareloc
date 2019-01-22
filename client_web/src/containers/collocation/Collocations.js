@@ -1,26 +1,35 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { getMethod, deleteMethod } from '../../components/httpMethods';
+import { checkStatus } from '../../components/Utils';
 import {Button, Glyphicon} from 'react-bootstrap';
 import CollocationList from '../../components/collocation/CollocationList';
 import Logo from '../../components/Logo';
 
-const CollocationsObject = [
-    {
-        name: 'Résidence Clinchard'
-    },
-    {
-        name: 'Maison Dettwiller'
-    }
-];
-
 export default class Collocations extends React.Component {
     state = {
         userName: 'Joffrey',
-        isCollocationAdmin: true
+        isCollocationAdmin: true,
+        CollocationsObject: []
+    }
+
+    componentDidMount() {
+        //get the CollocationsObject
+        getMethod('http://jsonplaceholder.typicode.com/users')
+        .then(checkStatus)
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ 
+                CollocationsObject: data
+            });
+        })
+        .catch(() => this.setState({ 
+            CollocationsObject: null
+        }));
     }
 
     deleteCollocation = (e) => {
-        alert('delete');
+        deleteMethod('lol');
     }
 
     handleSubmit = (event) => {
@@ -38,7 +47,7 @@ export default class Collocations extends React.Component {
                 
                 <div className='card'>
                     <CollocationList
-                        items={CollocationsObject}
+                        items={this.state.CollocationsObject}
                         isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteCollocation}
                         onUpdate={this.updateCollocation}
