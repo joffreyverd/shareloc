@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Glyphicon} from 'react-bootstrap';
 
-export default ({ username, isAdmin, onDelete }) => (
+export default ({ id, username, isAdmin, onDelete }) => (
 
     <li className='list-item'>
         <h3 className='item-name'>{username}</h3>
@@ -16,7 +16,7 @@ export default ({ username, isAdmin, onDelete }) => (
             </Link>
 
             {isAdmin ?
-            <Button onClick={onDelete}>
+            <Button onClick={() => onDelete(id)}>
                 <Glyphicon glyph='trash'/>
             </Button> : ''
             }

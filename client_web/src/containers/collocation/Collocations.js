@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { getMethod, deleteMethod } from '../../components/httpMethods';
-import { checkStatus } from '../../components/Utils';
+import api from '../../components/httpMethods';
 import {Button, Glyphicon} from 'react-bootstrap';
 import CollocationList from '../../components/collocation/CollocationList';
 import Logo from '../../components/Logo';
@@ -10,35 +9,35 @@ export default class Collocations extends React.Component {
     state = {
         userName: 'Joffrey',
         isCollocationAdmin: true,
-        CollocationsObject: []
+        collocations: []
     }
 
     componentDidMount() {
-        //get the CollocationsObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                CollocationsObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            CollocationsObject: null
-        }));
+        //get the collocationsObject
+        api.get('/users').then(collocations => {
+            this.setState({ collocations });
+        });
     }
-
-    deleteCollocation = (e) => {
-        deleteMethod('lol');
-    }
-
+    
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
         history.push('/housemates');
     }
 
+    deleteCollocation = (id) => {        
+        //api.delete('/users').then(() => {
+            this.setState({
+                collocations: this.state.collocations.filter(collocationsElement => collocationsElement.id !== id)
+            });
+        //});
+    }
+
     render() {
+        const { collocations, isCollocationAdmin } = this.state;
+
+        console.log(collocations);
+
         return(
             <>
                 <Logo/>
@@ -47,23 +46,21 @@ export default class Collocations extends React.Component {
                 
                 <div className='card'>
                     <CollocationList
-                        items={this.state.CollocationsObject}
-                        isAdmin={this.state.isCollocationAdmin}
+                        items={collocations}
+                        isAdmin={isCollocationAdmin}
                         onDelete={this.deleteCollocation}
                         onUpdate={this.updateCollocation}
                     />
 
-                    {this.state.isCollocationAdmin ?
+                    {isCollocationAdmin &&
                     <Link to='/newCollocation' className='add-item-icon'>
                         <Button>
                             <Glyphicon glyph='plus'/>
                         </Button>
-                    </Link> : ''
+                    </Link>
                     }
 
                 </div>
-
-
             </>
         );
     }

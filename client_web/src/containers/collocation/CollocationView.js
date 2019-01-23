@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../css/collocation.css';
-import { getMethod, putMethod, deleteMethod } from '../../components/httpMethods';
-import { checkStatus } from '../../components/Utils';
+import api from '../../components/httpMethods';
 import Logo from '../../components/Logo';
 import HousemateList from '../../components/housemate/HousemateList';
 import TaskList from '../../components/task/TaskList';
@@ -14,12 +13,12 @@ export default class CollocationView extends React.Component {
     state = {
         collocationName: 'Ma collocation',
         isCollocationAdmin: true,
-        HousemateObject: [],
-        TaskObject: [],
-        AchievedObject: [],
-        ProposalObject: [],
-        DashboardObject: [],
-        ScoringObject: []
+        housemate: [],
+        task: [],
+        achieved: [],
+        proposal: [],
+        dashboard: [],
+        scoring: []
     }
 
     /*
@@ -27,84 +26,35 @@ export default class CollocationView extends React.Component {
     */
 
     componentDidMount() {
-        //get the HousemateObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                HousemateObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            HousemateObject: null
-        }));
+        //get the housemate
+        api.get('/users').then(housemate => {
+            this.setState({ housemate });
+        });
 
-        //get the TaskObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                TaskObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            TaskObject: null
-        }));
+        //get the task
+        api.get('/users').then(task => {
+            this.setState({ task });
+        });
 
-        //get the ProposalObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                ProposalObject: data
-            });
-            console.log(data);
-        })
-        .catch(() => this.setState({ 
-            ProposalObject: null
-        }));
+        //get the proposal
+        api.get('/users').then(proposal => {
+            this.setState({ proposal });
+        });
 
-        //get the AchievedObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                AchievedObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            AchievedObject: null
-        }));
+        //get the achieved
+        api.get('/users').then(achieved => {
+            this.setState({ achieved });
+        });
 
-        //get the AchievedObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                ScoringObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            ScoringObject: null
-        }));
+        //get the scoring
+        api.get('/users').then(scoring => {
+            this.setState({ scoring });
+        });
 
-        //get the AchievedObject
-        getMethod('http://jsonplaceholder.typicode.com/users')
-        .then(checkStatus)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({ 
-                DashboardObject: data
-            });
-        })
-        .catch(() => this.setState({ 
-            DashboardObject: null
-        }));
+        //get the dashboard
+        api.get('/users').then(dashboard => {
+            this.setState({ dashboard });
+        });
     }
 
     handleSubmit = (event) => {
@@ -118,11 +68,15 @@ export default class CollocationView extends React.Component {
      */
 
     deleteHousemate = (e) => {
-        deleteMethod('lol');
+        api.delete('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     deleteTask = (e) => {
-        deleteMethod('lol');
+        api.delete('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     /*
@@ -130,11 +84,15 @@ export default class CollocationView extends React.Component {
      */
 
     acceptUnapprouvedTask = (e) => {
-        putMethod('lol');
+        api.put('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     refuseUnapprouvedTask = (e) => {
-        putMethod('lol');
+        api.put('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     /*
@@ -142,14 +100,20 @@ export default class CollocationView extends React.Component {
      */
 
     acceptAchievedTask = (e) => {
-        putMethod('lol');
+        api.put('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     refuseAchievedTask = (e) => {
-        putMethod('lol');
+        api.put('/users').then(
+            console.log('Supprimer element du tableau')
+        )
     }
 
     render() {
+        const { housemate, task, proposal, achieved, dashboard, scoring } = this.state
+
         return(
             <>
                 <Logo/>
@@ -158,33 +122,33 @@ export default class CollocationView extends React.Component {
 
                 <div className='collocations_components'>
                     <HousemateList
-                        items={this.state.HousemateObject}
+                        items={housemate}
                         isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteHousemate}
                     />
 
                     <TaskList
-                        items={this.state.TaskObject}
+                        items={task}
                         isAdmin={this.state.isCollocationAdmin}
                         onDelete={this.deleteTask}
                     />
                 </div>
 
                 <UnapprouvedTaskList
-                    items={this.state.ProposalObject}
+                    items={proposal}
                     onAccept={this.acceptUnapprouvedTask}
                     onRefuse={this.refuseUnapprouvedTask}
                 />
                 
                 <AchievedTaskList
-                    items={this.state.AchievedObject}
+                    items={achieved}
                     onAccept={this.acceptAchievedTask}
                     onRefuse={this.refuseAchievedTask}
                 />
 
                 <div className='dashboard-component'>
-                    <Dashboard items={this.state.DashboardObject}/>
-                    <Scoring items={this.state.ScoringObject}/>
+                    <Dashboard items={dashboard}/>
+                    <Scoring items={scoring}/>
                 </div>
             </>
         );
