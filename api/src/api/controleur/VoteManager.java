@@ -108,18 +108,14 @@ public class VoteManager {
 						s.setAchievedServiceStatut(1);
 						daoAchievedService.edit(s);
 						return true;
-					}catch(Exception e) {
-						return false;
-					}
+					}catch(Exception e) {}
 				}else {
 					try {
 						AchievedService s = AchievedServiceManager.getAchievedService(idAchievedService);
 						s.setAchievedServiceStatut(2);
 						daoAchievedService.edit(s);
 						return true;
-					}catch(Exception e) {
-						return false;
-					}
+					}catch(Exception e) {}
 				}
 			}
 			return true;
