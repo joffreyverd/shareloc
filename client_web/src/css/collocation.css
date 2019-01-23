@@ -174,3 +174,15 @@
     width: 100%;
     justify-content: center;
 }
+
+/****************** NEW ACHIEVED TASK ******************/
+
+.dropdown {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.dropdown-toggle {
+    width: 100%;
+}
