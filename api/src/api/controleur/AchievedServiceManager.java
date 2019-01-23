@@ -30,6 +30,22 @@ public class AchievedServiceManager {
 		return as;
 	}
 	
+	public static List<AchievedService> getAllAchievedServiceCreateColloc(int idColloc){
+		Query q = daoAchievedService.getEntityManager().createNamedQuery("AchievedService.getByCollocAndStatusCreate").setParameter("idColloc", idColloc);
+        List<AchievedService> as = new ArrayList<>();
+		try
+        {
+			as = (List<AchievedService>) q.getResultList();
+        }
+        catch(Exception e)
+        {}
+        
+        if(as != null)
+            return (List<AchievedService>) as;
+        else
+            return null;
+	}
+	
 	public static List<AchievedService> getAllAchievedServiceValidColloc(int idColloc) {
 		Query q = daoAchievedService.getEntityManager().createNamedQuery("AchievedService.getByCollocAndStatusAccepted").setParameter("idColloc", idColloc);
         List<AchievedService> as = new ArrayList<>();

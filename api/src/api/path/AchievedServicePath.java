@@ -51,6 +51,18 @@ public class AchievedServicePath {
 	
 	@SigninNeeded
 	@GET
+	@Path("/getServiceCreate/{idColloc}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllAchievedServiceCreateColloc(@PathParam("idColloc") int idColloc) {
+		List<AchievedService> las = AchievedServiceManager.getAllAchievedServiceCreateColloc(idColloc);
+		if (las != null) {
+			return Response.ok().entity(las).build();
+		}
+		else return null;
+	}
+	
+	@SigninNeeded
+	@GET
 	@Path("/getAchievedServiceAcceptedUser/{idUser}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllAchievedServiceValidUser(@PathParam("idUser") int idUser) {

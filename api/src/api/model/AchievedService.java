@@ -13,6 +13,7 @@ import java.util.Date;
 @Table(name="ACHIEVED_SERVICE")
 @NamedQueries({
 @NamedQuery(name="AchievedService.findAll", query="SELECT a FROM AchievedService a"),
+@NamedQuery(name="AchievedService.getByCollocAndStatusCreate", query="SELECT a FROM AchievedService a WHERE a.achievedServiceStatut= 0 AND a.idCollocation = :idColloc"),
 @NamedQuery(name="AchievedService.getByCollocAndStatusAccepted", query="SELECT a FROM AchievedService a WHERE a.achievedServiceStatut= 1 AND a.idCollocation = :idColloc"),
 @NamedQuery(name="AchievedService.getByUserAndStatusAccepted", query="SELECT a FROM AchievedService a WHERE a.achievedServiceStatut=1 AND a.idUser = :idUser")
 })

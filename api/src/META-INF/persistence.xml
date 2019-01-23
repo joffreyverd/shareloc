@@ -4,6 +4,7 @@
 		<class>api.model.AchievedService</class>
 		<class>api.model.Beneficiary</class>
 		<class>api.model.BeneficiaryId</class>
+		<class>api.model.Chat</class>
 		<class>api.model.Collocation</class>
 		<class>api.model.CollocUser</class>
 		<class>api.model.CollocUserId</class>
