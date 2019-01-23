@@ -1,0 +1,139 @@
+.App {
+  background-color: #3B62FF;
+  background-size: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/****************** HOME ******************/
+
+.flex_buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#register_button, #login_button {
+  padding: 15px 15px;
+  width: 50%;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#register_button {
+  border-radius: 5px 0px 0px 0px;
+  transition-duration: 0.2s;
+  text-align: center;
+}
+
+#login_button {
+  border-radius: 0px 5px 0px 0px;
+  transition-duration: 0.2s;
+  text-align: center;
+}
+
+#register_button:hover, #login_button:hover {
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.active {
+  color: white;
+  background-color: rgb(63, 62, 107);
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: .8em;
+  font-weight: bold;
+  color: white;
+}
+
+.logo > img {
+  width: 60px;
+  height: 60px;
+}
+
+/****************** SIGNIN ******************/
+
+.form-horizontal .form-group {
+  margin: 5px 50px 0px 50px !important;
+}
+
+.form-horizontal {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7em;
+  margin: 20px;
+}
+
+.btn-primary {
+  width: 80px;
+  display: block;
+  margin: 25px auto 25px auto;
+}
+
+/****************** SIGNUP ******************/
+
+.body-wrapper {
+  background-color: #3B62FF;
+  background-size: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.register_modal {
+  display: block;
+  margin: 100px auto auto;
+  width: 500px;
+  border-radius: 5px;
+  color: #424152;
+  background-color: white;
+}
+
+/****************** FORMS ******************/
+
+.main-title {
+  color: white;
+}
+
+.submission-form {
+  background-color: white;
+  border-radius: .6rem;
+  margin: 20px;
+  padding: 1rem;
+  color: #424152;
+  transition: 0.2s;
+}
+
+.submission-form:hover {
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+}
