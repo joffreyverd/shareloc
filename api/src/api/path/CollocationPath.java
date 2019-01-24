@@ -19,7 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
-@Path("/collocation")
+@Path("/Collocation")
 public class CollocationPath {
 	
 	@SigninNeeded

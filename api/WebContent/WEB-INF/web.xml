@@ -16,4 +16,12 @@
     <servlet-name>shareloc_api</servlet-name>
     <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
+  <filter>
+  	<filter-name>Filter</filter-name>
+  	<filter-class>api.filter.Filter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Filter</filter-name>
+  	<url-pattern>/api/*</url-pattern>
+  </filter-mapping>
 </web-app>

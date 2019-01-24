@@ -1,5 +1,6 @@
 package api.path;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -42,8 +43,12 @@ public class Authentification {
 	public Response signin(JSONObject params) {
 		User u = UserManager.login(params.get("login").toString(), params.get("password").toString());
 
-		if (u != null)
-			return Response.ok().entity(JWTokenUtility.buildJWT(u.getLoginUser())).build();
+		if (u != null) {
+			HashMap<String, Object> data = new HashMap<String, Object>();
+			data.put("token",JWTokenUtility.buildJWT(u.getLoginUser()));
+			data.put("user",u);
+			return Response.ok().entity(data).build();
+		}
 
 		return Response.status(Status.NOT_ACCEPTABLE).build();
 	}

@@ -1,6 +1,7 @@
 package api.path;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -21,23 +22,26 @@ import api.controleur.UserManager;
 import api.model.CollocUser;
 import api.model.Collocation;
 import api.model.User;
+import api.security.JWTokenUtility;
 import api.security.SigninNeeded;
 
-@Path("/collocUser")
+@Path("/CollocUser")
 public class CollocUserPath {
 	@SigninNeeded
 	@GET
 	@Path("/getCollocs/{idUser}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> getCollocForUser(@PathParam("idUser") int idUser) {
+	public Response getCollocForUser(@PathParam("idUser") int idUser) {
 		List<CollocUser> lcu = CollocUserManager.getAllCollocUser(idUser);
 		List<Collocation> lc = CollocationManager.getListColloc(lcu);
-		List<String> s = new ArrayList<>();
-		
+		HashMap<String, Object> data = new HashMap<String, Object>();
 		for (Collocation cu : lc) {
-			s.add(cu.getNameCollocation());
+			data.put("\"id\"",cu.getIdCollocation());
+			data.put("\"nameColloc\"",cu.getNameCollocation());
 		}
-		if(s != null) return s;
+		if(data != null) {
+			return Response.ok().entity(data).build();
+		}
 		else return null;
 	}	
 	
