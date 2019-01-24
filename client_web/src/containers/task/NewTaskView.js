@@ -22,7 +22,7 @@ class NewTask extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        history.push('/newTask');
+        history.push('/collocationView');
     }
     
     render() {
@@ -35,19 +35,19 @@ class NewTask extends Component {
                 <div className='submission-form'>
                     <Form horizontal onSubmit={this.handleSubmit}>
 
-                        <FormGroup controlId='text'>
+                        <FormGroup controlId='name'>
                             <ControlLabel>Nom</ControlLabel>
                             <FormControl
-                                type='text'
+                                type='name'
                                 value={this.state.name}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
 
-                        <FormGroup controlId='text'>
+                        <FormGroup controlId='score'>
                             <ControlLabel>Points</ControlLabel>
                             <FormControl
-                                type='text'
+                                type='score'
                                 value={this.state.score}
                                 onChange={this.handleChange}
                             />

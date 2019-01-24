@@ -21,7 +21,7 @@ class NewHousemateView extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        history.push('/newHousemateView');
+        history.push('/collocationView');
     }
     
     render() {
@@ -34,10 +34,10 @@ class NewHousemateView extends Component {
                 <div className='submission-form'>
                     <Form horizontal onSubmit={this.handleSubmit}>
 
-                        <FormGroup controlId='text'>
+                        <FormGroup controlId='name'>
                             <ControlLabel>Nom</ControlLabel>
                             <FormControl
-                                type='text'
+                                type='name'
                                 value={this.state.name}
                                 onChange={this.handleChange}
                             />

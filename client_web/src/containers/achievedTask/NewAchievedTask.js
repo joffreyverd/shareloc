@@ -23,7 +23,7 @@ class NewAchievedTask extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { history } = this.props;
-        history.push('/newAchievedTask');
+        history.push('/collocationView');
     }
     
     render() {
@@ -45,10 +45,10 @@ class NewAchievedTask extends Component {
                                 </DropdownButton>
                         </FormGroup>
 
-                        <FormGroup controlId='text'>
+                        <FormGroup controlId='date'>
                             <ControlLabel>Date</ControlLabel>
                             <FormControl
-                                type='text'
+                                type='date'
                                 value={this.state.date}
                                 onChange={this.handleChange}
                             />
