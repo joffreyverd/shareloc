@@ -4,7 +4,7 @@ export default () => (
 
     <div className='logo'>
         <img src='/img/logo.png' alt='logo'/>
-        <p>ShareLoc</p>
+        <p>Shareloc</p>
     </div>
 
 );
